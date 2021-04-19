@@ -58,7 +58,7 @@ sound_on_hover.png"
 #define FPS_INFO FPS_BTN, POS_FPS, RECT_FPS, SIZE_QUIT
 #define FPS_TEXTURE FPS_HOVER, FPS_CLICK
 
-#define MENU_BACKGROUND "resources/room/background.png"
+#define MENU_BACKGROUND "resources/room/menu_bg.png"
 #define POS_BG (sfVector2f){0, 0}
 #define RECT_BG (sfIntRect){0, 0, 1366, 768}
 #define SCALE_BG (sfVector2f){1.405, 1.405}
