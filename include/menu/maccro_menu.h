@@ -60,8 +60,8 @@ sound_on_hover.png"
 
 #define MENU_BACKGROUND "resources/room/background.png"
 #define POS_BG (sfVector2f){0, 0}
-#define RECT_BG (sfIntRect){0, 0, 1000, 563}
-#define SCALE_BG (sfVector2f){1.92, 1.92}
+#define RECT_BG (sfIntRect){0, 0, 1366, 768}
+#define SCALE_BG (sfVector2f){1.405, 1.405}
 
 #define MUSIC "resources/sound/music.wav"
 
@@ -76,6 +76,6 @@ sound_on_hover.png"
 #define HOWTO_BG "resources/room/background.png"
 #define POS_HOWTO_BG (sfVector2f){1920, 0}
 #define POS_HOWTO_BG_PLACED (sfVector2f){0, 0}
-#define RECT_HOWTO_BG (sfIntRect){0, 0, 1920, 1080}
+#define RECT_HOWTO_BG (sfIntRect){0, 0, 1366, 768}
 
 #endif
