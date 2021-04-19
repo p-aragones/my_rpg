@@ -1,14 +1,13 @@
 /*
 ** EPITECH PROJECT, 2021
-** main
+** B-MUL-200-BAR-2-1-myrpg-javier.sanchez-castro
 ** File description:
-** main.c
+** main
 */
 
-#include "defender.h"
+#include "rpg.h"
 
-int main(int ac, char **av)
+int main(void)
 {
-    int i = start_game();
-    return (i);
+    return (rpg());
 }
