@@ -5,10 +5,9 @@
 ** game
 */
 
-#ifndef GAME_H_
-#define GAME_H_
+#include "game.h"
 
-
-#include "struct.h"
-
-#endif /* !GAME_H_ */
+int game(window_t *window)
+{
+    return (0);
+}

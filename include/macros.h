@@ -11,6 +11,6 @@
 #define X_WINDOW 1920
 #define Y_WINDOW 1080
 
-#define FONT "resources/font/game_over.ttf"
+#define FONT "resources/hud/game_over.ttf"
 
 #endif /* !MACROS_H_ */

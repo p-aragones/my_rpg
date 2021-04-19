@@ -16,7 +16,6 @@ typedef struct fps_s {
     sfText *text;
 } fps_t;
 
-
 typedef struct clock_struct_s {
     sfClock *clock;
     sfTime time;
