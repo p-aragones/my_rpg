@@ -21,6 +21,8 @@ void check_moves(sfEvent event, game_t *game)
 
 int game_events(sfEvent event, game_t *game, window_t *window)
 {
+    if (game->room->n_enemies == 0)
+        game->room->locked = 0;
     while (sfRenderWindow_pollEvent(window->window, &event)) {
         if (event.key.code == sfKeyEscape)
             sfRenderWindow_close(window->window);

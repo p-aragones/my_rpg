@@ -18,6 +18,12 @@
 #define RECT_PLAYER (sfIntRect){0, 640, 64, 64}
 #define SCALE_PLAYER (sfVector2f){2, 2}
 
+#define DOOR_TEXTURE "resources/room/doors.png"
+#define POS_DOOR (sfVector2f){1900, 1080 / 2}
+#define RECT_DOOR (sfIntRect){0, 0, 50, 50}
+#define SCALE_DOOR (sfVector2f){2, 2}
+
+// PLAYER MOVEMENT
 #define UP 0, 1
 #define DOWN 0, -1
 #define LEFT -1, 0

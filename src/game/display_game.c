@@ -10,6 +10,7 @@
 void draw_room(room_t *room, sfRenderWindow *window)
 {
     sfRenderWindow_drawSprite(window, room->elem->sprite, NULL);
+    sfRenderWindow_drawSprite(window, room->door->sprite, NULL);
 }
 
 void draw_player(player_t *player, sfRenderWindow *window)

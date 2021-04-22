@@ -26,8 +26,10 @@ typedef struct player_s {
 
 typedef struct room_s {
     elem_t *elem;
+    elem_t *door;
     enemy_t **enemies;
     int n_enemies;
+    int locked;
 } room_t;
 
 typedef struct game_s {
