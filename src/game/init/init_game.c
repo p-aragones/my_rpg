@@ -19,10 +19,13 @@ room_t *init_room(void)
     room->enemies == NULL;
     room->elem = create_elem(ROOM_BG, POS_BG, RECT_BG);
     room->door = create_elem(DOOR_TEXTURE, POS_DOOR, RECT_DOOR);
-    if (!room->elem || !room->door)
+    room->backdoor = create_elem(DOOR_TEXTURE, POS_BDOOR, RECT_DOOR);
+    if (!room->elem || !room->door || !room->backdoor)
         return (NULL);
     sfSprite_setScale(room->door->sprite, SCALE_DOOR);
+    sfSprite_setScale(room->backdoor->sprite, SCALE_DOOR);
     sfSprite_setRotation(room->door->sprite, 90);
+    sfSprite_setRotation(room->backdoor->sprite, 270);
     sfSprite_setScale(room->elem->sprite, SCALE_BG);
     return (room);
 }

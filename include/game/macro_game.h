@@ -20,6 +20,7 @@
 
 #define DOOR_TEXTURE "resources/room/doors.png"
 #define POS_DOOR (sfVector2f){1900, 1080 / 2}
+#define POS_BDOOR (sfVector2f){-100, 1080 / 2 + 60}
 #define RECT_DOOR (sfIntRect){0, 0, 50, 50}
 #define SCALE_DOOR (sfVector2f){2, 2}
 
