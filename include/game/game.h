@@ -8,7 +8,11 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+#include "rpg.h"
+#include "game_struct.h"
+#include "macro_game.h"
 
-#include "struct.h"
+game_t *init_game();
+void display_game(game_t *, sfRenderWindow *);
 
 #endif /* !GAME_H_ */

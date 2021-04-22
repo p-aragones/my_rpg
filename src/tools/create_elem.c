@@ -20,5 +20,7 @@ elem_t *create_elem(char *path, sfVector2f pos, sfIntRect rect)
     if (!elem->texture || !elem->sprite)
         return (NULL);
     sfSprite_setTexture(elem->sprite, elem->texture, sfTrue);
+    sfSprite_setTextureRect(elem->sprite, elem->rect);
+    sfSprite_setPosition(elem->sprite, elem->pos);
     return (elem);
 }

@@ -1,0 +1,51 @@
+/*
+** EPITECH PROJECT, 2021
+** B-MUL-200-BAR-2-1-myrpg-javier.sanchez-castro
+** File description:
+** init_game
+*/
+
+#include "game.h"
+#include "tools.h"
+
+room_t *init_room(void)
+{
+    room_t *room = malloc(sizeof(room_t));
+
+    if (!room)
+        return (NULL);
+    room->n_enemies = 0;
+    room->enemies == NULL;
+    room->elem = create_elem(ROOM_BG, POS_BG, RECT_BG);
+    if (!room->elem)
+        return (NULL);
+    sfSprite_setScale(room->elem->sprite, SCALE_BG);
+    return (room);
+}
+
+player_t *init_player(void)
+{
+    player_t *player = malloc(sizeof(player_t));
+
+    if (!player)
+        return (NULL);
+    player->elem = create_elem(PLAYER_TEXTURE, POS_PLAYER, RECT_PLAYER);
+    sfSprite_setScale(player->elem->sprite, SCALE_PLAYER);
+    if (!player->elem)
+        return (NULL);
+    player->dmg = 1;
+    player->speed = 10;
+    player->health = 3;
+    return (player);
+}
+
+game_t *init_game(void)
+{
+    game_t *game = malloc(sizeof(game_t));
+
+    if (!game)
+        return (NULL);
+    game->room = init_room();
+    game->player = init_player();
+    return (game);
+}
