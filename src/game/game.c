@@ -13,6 +13,7 @@ int game(window_t *window)
     game_t *game = init_game();
 
     while (sfRenderWindow_isOpen(window->window)) {
+        game_events(event, game, window);
         display_game(game, window->window);
     }
     return (0);

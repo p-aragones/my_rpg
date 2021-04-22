@@ -14,6 +14,7 @@ void draw_room(room_t *room, sfRenderWindow *window)
 
 void draw_player(player_t *player, sfRenderWindow *window)
 {
+    sfSprite_setPosition(player->elem->sprite, player->elem->pos);
     sfRenderWindow_drawSprite(window, player->elem->sprite, NULL);
 }
 

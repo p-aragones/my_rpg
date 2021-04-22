@@ -34,7 +34,7 @@ player_t *init_player(void)
     if (!player->elem)
         return (NULL);
     player->dmg = 1;
-    player->speed = 10;
+    player->speed = 15;
     player->health = 3;
     return (player);
 }

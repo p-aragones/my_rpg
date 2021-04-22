@@ -18,4 +18,9 @@
 #define RECT_PLAYER (sfIntRect){0, 640, 64, 64}
 #define SCALE_PLAYER (sfVector2f){2, 2}
 
+#define UP 0, 1
+#define DOWN 0, -1
+#define LEFT -1, 0
+#define RIGHT 1, 0
+
 #endif /* !MACRO_GAME_H_ */
