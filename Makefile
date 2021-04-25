@@ -7,7 +7,7 @@
 
 NAME	=	my_rpg
 
-CFLAGS	+=	-I ./include/ -I ./include/game/ -I ./include/menu/ -I ./include/pause/ -I ./lib/include/
+CFLAGS	+=	-I ./include/ -I ./include/game/ -I ./include/menu/ -I ./include/pause/ -I ./lib/include/ -g3
 CFLAGS	+=	-lcriterion
 
 LDLIBS	+=	-L./lib/ -lmy

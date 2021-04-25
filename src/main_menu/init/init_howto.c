@@ -15,6 +15,7 @@ howto_t *init_howto(void)
         return (NULL);
     howto->howto = create_elem(HOWTO, POS_HOWTO, RECT_HOWTO);
     howto->howto_bg = create_elem(HOWTO_BG, POS_HOWTO_BG, RECT_HOWTO_BG);
+    sfSprite_setScale(howto->howto_bg->sprite, SCALE_BG);
     howto->status = 0;
     return (howto);
 }

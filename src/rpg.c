@@ -9,5 +9,9 @@
 
 int rpg(void)
 {
-    return (0);
+    window_t *window = init_window();
+
+    if (!window)
+        return (84);
+    return (main_menu(window));
 }
