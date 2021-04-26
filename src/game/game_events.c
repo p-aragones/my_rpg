@@ -7,16 +7,39 @@
 
 #include "game.h"
 
-void check_moves(sfEvent event, game_t *game)
+int movers(sfEvent event, game_t *game)
 {
-    if (event.key.code == sfKeyUp)
-        move_player(game->player, UP);
-    if (event.key.code == sfKeyDown)
+    if (event.key.code == sfKeyDown) {
         move_player(game->player, DOWN);
-    if (event.key.code == sfKeyLeft)
+        game->player->elem->rect.top = 640;
+        return (0);
+    }
+    if (event.key.code == sfKeyLeft) {
         move_player(game->player, LEFT);
-    if (event.key.code == sfKeyRight)
+        game->player->elem->rect.top = 576;
+        return (0);
+    }
+    if (event.key.code == sfKeyRight) {
         move_player(game->player, RIGHT);
+        game->player->elem->rect.top = 704;
+        return (0);
+    }
+    return (1);
+}
+
+int check_moves(sfEvent event, game_t *game)
+{
+    game->player->elem->rect.left += 64;
+    if (game->player->elem->rect.left == 576)
+        game->player->elem->rect.left = 0;
+    if (event.key.code == sfKeyUp) {
+        move_player(game->player, UP);
+        game->player->elem->rect.top = 512;
+        return (0);
+    }
+    if (movers(event, game) == 1)
+        game->player->elem->rect.left = 0;
+    return (0);
 }
 
 int cross_door(sfVector2f player, sfVector2f door)
