@@ -15,6 +15,8 @@
 // PLAYER
 void move_player(player_t *, int, int);
 
+// ROOM
+void generate_room(game_t *);
 
 game_t *init_game();
 int game_events(sfEvent, game_t *, window_t *);

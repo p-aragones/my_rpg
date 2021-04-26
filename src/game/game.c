@@ -6,12 +6,14 @@
 */
 
 #include "game.h"
+#include <time.h>
 
 int game(window_t *window)
 {
     sfEvent event;
     game_t *game = init_game();
 
+    srand(time(NULL));
     while (sfRenderWindow_isOpen(window->window)) {
         game_events(event, game, window);
         display_game(game, window->window);
