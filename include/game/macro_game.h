@@ -40,36 +40,36 @@
 #define BAT_TEXTURE "resources/enemies/bat.png"
 #define POS_BAT (sfVector2f){0, 0}
 #define RECT_BAT (sfIntRect){0, 0, 48, 48}
-#define SCALE_BAT (sfVector2f){2, 2}
+#define SCALE_BAT (sfVector2f){2.5, 2.5}
 // [HEALTH, SPEED]
-#define BAT_STATS 5, 10
+#define BAT_STATS 5, 3
 
 #define DIP_TEXTURE "resources/enemies/dip.png"
 #define POS_DIP (sfVector2f){0, 0}
 #define RECT_DIP (sfIntRect){0, 0, 32, 32}
-#define SCALE_DIP (sfVector2f){2, 2}
+#define SCALE_DIP (sfVector2f){3, 3}
 // [HEALTH, SPEED]
-#define DIP_STATS 1, 5
+#define DIP_STATS 1, 3
 
 #define GHOST_TEXTURE "resources/enemies/ghost.png"
 #define POS_GHOST (sfVector2f){0, 0}
 #define RECT_GHOST (sfIntRect){0, 0, 32, 32}
-#define SCALE_GHOST (sfVector2f){2, 2}
+#define SCALE_GHOST (sfVector2f){2.5, 2.5}
 // [HEALTH, SPEED]
-#define GHOST_STATS 1, 20
+#define GHOST_STATS 1, 4
 
 #define HEAD_TEXTURE "resources/enemies/head.png"
 #define POS_HEAD (sfVector2f){0, 0}
 #define RECT_HEAD (sfIntRect){0, 0, 32, 30}
-#define SCALE_HEAD (sfVector2f){2, 2}
+#define SCALE_HEAD (sfVector2f){2.5, 2.5}
 // [HEALTH, SPEED]
 #define HEAD_STATS 20, 2
 
 #define SPIKE_TEXTURE "resources/enemies/spike.png"
 #define POS_SPIKE (sfVector2f){0, 0}
 #define RECT_SPIKE (sfIntRect){0, 0, 48, 48}
-#define SCALE_SPIKE (sfVector2f){2, 2}
+#define SCALE_SPIKE (sfVector2f){3, 3}
 // [HEALTH, SPEED]
-#define SPIKE_STATS 10, 10
+#define SPIKE_STATS 10, 2
 
 #endif /* !MACRO_GAME_H_ */
