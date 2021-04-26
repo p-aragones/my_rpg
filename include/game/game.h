@@ -22,6 +22,7 @@ enemy_t *create_dip(int , int);
 enemy_t *create_ghost(int , int);
 enemy_t *create_head(int , int);
 enemy_t *create_spike(int , int);
+sfVector2f random_pos(void);
 void follow_player(player_t *, enemy_t **);
 
 // ROOM

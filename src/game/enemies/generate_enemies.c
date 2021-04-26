@@ -29,7 +29,7 @@ enemy_t *create_enemy(void)
 
 game_t *generate_enemies(game_t *game)
 {
-    int n_enemies = (rand() % 8) + 5;
+    int n_enemies = (rand() % 3) + 3;
     game->room->enemies = malloc(sizeof(enemy_t *) * (n_enemies + 1));
     int i = 0;
 
