@@ -7,16 +7,8 @@
 
 #include "game.h"
 
-int check_moves(sfEvent event, game_t *game)
+int movers(sfEvent event, game_t *game)
 {
-    game->player->elem->rect.left += 64;
-    if (game->player->elem->rect.left == 576)
-        game->player->elem->rect.left = 0;
-    if (event.key.code == sfKeyUp) {
-        move_player(game->player, UP);
-        game->player->elem->rect.top = 512;
-        return (0);
-    }
     if (event.key.code == sfKeyDown) {
         move_player(game->player, DOWN);
         game->player->elem->rect.top = 640;
@@ -32,7 +24,21 @@ int check_moves(sfEvent event, game_t *game)
         game->player->elem->rect.top = 704;
         return (0);
     }
-    game->player->elem->rect.left = 0;
+    return (1);
+}
+
+int check_moves(sfEvent event, game_t *game)
+{
+    game->player->elem->rect.left += 64;
+    if (game->player->elem->rect.left == 576)
+        game->player->elem->rect.left = 0;
+    if (event.key.code == sfKeyUp) {
+        move_player(game->player, UP);
+        game->player->elem->rect.top = 512;
+        return (0);
+    }
+    if (movers(event, game) == 1)
+        game->player->elem->rect.left = 0;
     return (0);
 }
 
