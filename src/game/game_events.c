@@ -39,4 +39,6 @@ int game_events(sfEvent event, game_t *game, window_t *window)
             sfRenderWindow_close(window->window);
         check_moves(event, game);
     }
+    if (game->room->enemies)
+        follow_player(game->player, game->room->enemies);
 }
