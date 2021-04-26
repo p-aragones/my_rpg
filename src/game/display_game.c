@@ -21,10 +21,23 @@ void draw_player(player_t *player, sfRenderWindow *window)
     sfRenderWindow_drawSprite(window, player->elem->sprite, NULL);
 }
 
+void draw_enemies(enemy_t **enemies, sfRenderWindow *window)
+{
+    int i = 0;
+
+    while (enemies[i]) {
+        sfSprite_setPosition(enemies[i]->elem->sprite, enemies[i]->elem->pos);
+        sfRenderWindow_drawSprite(window, enemies[i]->elem->sprite, NULL);
+        i++;
+    }
+}
+
 void display_game(game_t *game, sfRenderWindow *window)
 {
     sfRenderWindow_clear(window, sfBlack);
     draw_room(game->room, window);
     draw_player(game->player, window);
+    if (game->room->enemies != NULL)
+        draw_enemies(game->room->enemies, window);
     sfRenderWindow_display(window);
 }

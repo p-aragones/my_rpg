@@ -15,8 +15,16 @@
 // PLAYER
 void move_player(player_t *, int, int);
 
+// ENEMIES
+game_t *generate_enemies(game_t *);
+enemy_t *create_bat(int , int);
+enemy_t *create_dip(int , int);
+enemy_t *create_ghost(int , int);
+enemy_t *create_head(int , int);
+enemy_t *create_spike(int , int);
+
 // ROOM
-void generate_room(game_t *);
+int generate_room(game_t *);
 
 game_t *init_game();
 int game_events(sfEvent, game_t *, window_t *);

@@ -7,9 +7,25 @@
 
 #include "game.h"
 
-void generate_room(game_t *game)
+void free_room(room_t *room)
 {
+    int i = 0;
+
+    while (room->enemies[i]) {
+        free_elem(room->enemies[i]->elem);
+    }
+    free(room->enemies);
+    room->enemies = NULL;
+}
+
+int generate_room(game_t *game)
+{
+    if (game->room->enemies)
+        free_room(game->room);
+    if (generate_enemies(game) == NULL)
+        return (84);
     game->player->elem->pos.x = 20;
     if (game->room->backdoor->pos.x != 20)
         game->room->backdoor->pos.x = 20;
+    game->room->locked = 1;
 }
