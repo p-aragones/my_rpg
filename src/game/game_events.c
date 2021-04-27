@@ -64,4 +64,6 @@ int game_events(sfEvent event, game_t *game, window_t *window)
         game->ball->pos.x = game->player->elem->pos.x + 40;
         game->ball->pos.y = game->player->elem->pos.y - 15;
     }
+    if (game->room->enemies)
+        follow_player(game->player, game->room->enemies);
 }

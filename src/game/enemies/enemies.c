@@ -13,7 +13,7 @@ enemy_t *create_bat(int health, int speed)
 
     if (!enemy)
         return (NULL);
-    enemy->elem = create_elem(BAT_TEXTURE, POS_BAT, RECT_BAT);
+    enemy->elem = create_elem(BAT_TEXTURE, random_pos(), RECT_BAT);
     if (!enemy->elem)
         return (NULL);
     sfSprite_setScale(enemy->elem->sprite, SCALE_BAT);
@@ -29,7 +29,7 @@ enemy_t *create_dip(int health, int speed)
 
     if (!enemy)
         return (NULL);
-    enemy->elem = create_elem(DIP_TEXTURE, POS_DIP, RECT_DIP);
+    enemy->elem = create_elem(DIP_TEXTURE, random_pos(), RECT_DIP);
     if (!enemy->elem)
         return (NULL);
     sfSprite_setScale(enemy->elem->sprite, SCALE_DIP);
@@ -45,7 +45,7 @@ enemy_t *create_ghost(int health, int speed)
 
     if (!enemy)
         return (NULL);
-    enemy->elem = create_elem(GHOST_TEXTURE, POS_GHOST, RECT_GHOST);
+    enemy->elem = create_elem(GHOST_TEXTURE, random_pos(), RECT_GHOST);
     if (!enemy->elem)
         return (NULL);
     sfSprite_setScale(enemy->elem->sprite, SCALE_GHOST);
@@ -61,7 +61,7 @@ enemy_t *create_head(int health, int speed)
 
     if (!enemy)
         return (NULL);
-    enemy->elem = create_elem(HEAD_TEXTURE, POS_HEAD, RECT_HEAD);
+    enemy->elem = create_elem(HEAD_TEXTURE, random_pos(), RECT_HEAD);
     if (!enemy->elem)
         return (NULL);
     sfSprite_setScale(enemy->elem->sprite, SCALE_HEAD);
@@ -77,7 +77,7 @@ enemy_t *create_spike(int health, int speed)
 
     if (!enemy)
         return (NULL);
-    enemy->elem = create_elem(SPIKE_TEXTURE, POS_SPIKE, RECT_SPIKE);
+    enemy->elem = create_elem(SPIKE_TEXTURE, random_pos(), RECT_SPIKE);
     if (!enemy->elem)
         return (NULL);
     sfSprite_setScale(enemy->elem->sprite, SCALE_SPIKE);
