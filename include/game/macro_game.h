@@ -31,23 +31,28 @@
 #define LEFT -1, 0
 #define RIGHT 1, 0
 
-// ENEMIES
-#define PLAYER_TEXTURE "resources/character/spritesheet.png"
-#define POS_PLAYER (sfVector2f){1920 / 2 - 64, 1080 / 2 - 64}
-#define RECT_PLAYER (sfIntRect){0, 640, 64, 64}
-#define SCALE_PLAYER (sfVector2f){2, 2}
-
+// BALL
 #define BALL_TEXTURE "resources/character/fireball.png"
 #define POS_BALL (sfVector2f){-100, -100}
 #define RECT_BALL (sfIntRect){0, 0, 947, 843}
 #define SCALE_BALL (sfVector2f){0.05, 0.05}
 
+// HUD
+#define HEART_TEXTURE "resources/hud/heart.png"
+#define POS_HEART (sfVector2f){0, 0}
+#define RECT_HEART (sfIntRect){0, 0, 720, 720}
+#define SCALE_HEART (sfVector2f){0.05, 0.05}
+
+#define SCORE_POS (sfVector2f){1920 / 2, 10}
+#define SCORE_SIZE 80
+
+// ENEMIES
 #define BAT_TEXTURE "resources/enemies/bat.png"
 #define POS_BAT (sfVector2f){0, 0}
 #define RECT_BAT (sfIntRect){0, 0, 48, 48}
 #define SCALE_BAT (sfVector2f){2.5, 2.5}
 // [HEALTH, SPEED]
-#define BAT_STATS 5, 3
+#define BAT_STATS 5, 4
 
 #define DIP_TEXTURE "resources/enemies/dip.png"
 #define POS_DIP (sfVector2f){0, 0}
@@ -61,7 +66,7 @@
 #define RECT_GHOST (sfIntRect){0, 0, 32, 32}
 #define SCALE_GHOST (sfVector2f){2.5, 2.5}
 // [HEALTH, SPEED]
-#define GHOST_STATS 1, 4
+#define GHOST_STATS 1, 5
 
 #define HEAD_TEXTURE "resources/enemies/head.png"
 #define POS_HEAD (sfVector2f){0, 0}
@@ -75,6 +80,6 @@
 #define RECT_SPIKE (sfIntRect){0, 0, 48, 48}
 #define SCALE_SPIKE (sfVector2f){3, 3}
 // [HEALTH, SPEED]
-#define SPIKE_STATS 10, 2
+#define SPIKE_STATS 10, 1
 
 #endif /* !MACRO_GAME_H_ */

@@ -24,6 +24,8 @@ int generate_room(game_t *game)
         free_room(game->room);
     if (generate_enemies(game) == NULL)
         return (84);
+    game->hud->room->num += 1;
+    sfText_setString(game->hud->room->text, my_its(game->hud->room->num));
     game->player->elem->pos.x = 20;
     if (game->room->backdoor->pos.x != 20)
         game->room->backdoor->pos.x = 20;

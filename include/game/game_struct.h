@@ -33,11 +33,17 @@ typedef struct room_s {
     int locked;
 } room_t;
 
+typedef struct hud_s {
+    elem_t **hearts;
+    text_t *room;
+} hud_t;
+
 typedef struct game_s {
     room_t *room;
     player_t *player;
     elem_t *ball;
     int ball_dir;
+    hud_t *hud;
 } game_t;
 
 #endif /* !GAME_STRUCT_H_ */

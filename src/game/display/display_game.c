@@ -47,5 +47,6 @@ void display_game(game_t *game, sfRenderWindow *window)
     if (game->room->enemies != NULL)
         draw_enemies(game->room->enemies, window);
     draw_ball(game->ball, window);
+    draw_hud(game->hud, game->player->health, window);
     sfRenderWindow_display(window);
 }
