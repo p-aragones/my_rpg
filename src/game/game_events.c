@@ -61,6 +61,8 @@ int game_events(sfEvent event, game_t *game, window_t *window)
         if (event.key.code == sfKeyEscape)
             sfRenderWindow_close(window->window);
         check_moves(event, game);
+        game->ball->pos.x = game->player->elem->pos.x + 40;
+        game->ball->pos.y = game->player->elem->pos.y - 15;
     }
     if (game->room->enemies)
         follow_player(game->player, game->room->enemies);

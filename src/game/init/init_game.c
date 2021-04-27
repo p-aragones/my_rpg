@@ -54,5 +54,7 @@ game_t *init_game(void)
         return (NULL);
     game->room = init_room();
     game->player = init_player();
+    game->ball = create_elem(BALL_TEXTURE, POS_BALL, RECT_BALL);
+    sfSprite_setScale(game->ball->sprite, SCALE_BALL);
     return (game);
 }
