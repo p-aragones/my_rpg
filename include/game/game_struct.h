@@ -37,6 +37,7 @@ typedef struct game_s {
     room_t *room;
     player_t *player;
     elem_t *ball;
+    int ball_dir;
 } game_t;
 
 #endif /* !GAME_STRUCT_H_ */
