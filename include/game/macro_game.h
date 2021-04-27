@@ -31,17 +31,19 @@
 #define LEFT -1, 0
 #define RIGHT 1, 0
 
-// ENEMIES
-#define PLAYER_TEXTURE "resources/character/spritesheet.png"
-#define POS_PLAYER (sfVector2f){1920 / 2 - 64, 1080 / 2 - 64}
-#define RECT_PLAYER (sfIntRect){0, 640, 64, 64}
-#define SCALE_PLAYER (sfVector2f){2, 2}
-
+// BALL
 #define BALL_TEXTURE "resources/character/fireball.png"
 #define POS_BALL (sfVector2f){1920 / 2 - 64 - 20, 1080 / 2 - 64 - 20}
 #define RECT_BALL (sfIntRect){0, 0, 947, 843}
 #define SCALE_BALL (sfVector2f){0.05, 0.05}
 
+// HUD
+#define HEART_TEXTURE "resources/hud/heart.png"
+#define POS_HEART (sfVector2f){0, 0}
+#define RECT_HEART (sfIntRect){0, 0, 720, 720}
+#define SCALE_HEART (sfVector2f){0.05, 0.05}
+
+// ENEMIES
 #define BAT_TEXTURE "resources/enemies/bat.png"
 #define POS_BAT (sfVector2f){0, 0}
 #define RECT_BAT (sfIntRect){0, 0, 48, 48}

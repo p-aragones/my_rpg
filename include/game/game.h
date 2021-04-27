@@ -28,8 +28,16 @@ void follow_player(player_t *, enemy_t **);
 // ROOM
 int generate_room(game_t *);
 
-game_t *init_game();
-int game_events(sfEvent, game_t *, window_t *);
+// INIT
+player_t *init_player(void);
+room_t *init_room(void);
+hud_t *init_hud(void);
+game_t *init_game(void);
+
+// DISPLAY
+void draw_hud(hud_t *, int , sfRenderWindow *);
 void display_game(game_t *, sfRenderWindow *);
+
+int game_events(sfEvent, game_t *, window_t *);
 
 #endif /* !GAME_H_ */
