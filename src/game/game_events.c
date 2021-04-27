@@ -39,6 +39,14 @@ int check_moves(sfEvent event, game_t *game)
     }
     if (movers(event, game) == 1)
         game->player->elem->rect.left = 0;
+    if (event.key.code == sfKeyA)
+        return (1);
+    if (event.key.code == sfKeyW)
+        return (2);
+    if (event.key.code == sfKeyS)
+        return (3);
+    if (event.key.code == sfKeyD)
+        return (4);
     return (0);
 }
 
@@ -52,6 +60,8 @@ int cross_door(sfVector2f player, sfVector2f door)
 
 int game_events(sfEvent event, game_t *game, window_t *window)
 {
+    int a = 0;
+
     if (game->room->n_enemies == 0)
         game->room->locked = 0;
     if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
@@ -60,9 +70,9 @@ int game_events(sfEvent event, game_t *game, window_t *window)
     while (sfRenderWindow_pollEvent(window->window, &event)) {
         if (event.key.code == sfKeyEscape)
             sfRenderWindow_close(window->window);
-        check_moves(event, game);
+        a = check_moves(event, game);
     }
-    ball_moves(event, game);
+    ball_moves(event, game, a);
     if (game->room->enemies)
         follow_player(game->player, game->room->enemies);
 }

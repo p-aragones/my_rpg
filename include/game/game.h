@@ -14,7 +14,7 @@
 
 // PLAYER
 void move_player(player_t *, int, int);
-int ball_moves(sfEvent, game_t *);
+int ball_moves(sfEvent, game_t *, int);
 
 // ENEMIES
 game_t *generate_enemies(game_t *);
