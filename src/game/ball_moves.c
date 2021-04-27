@@ -7,7 +7,7 @@
 
 #include "game.h"
 
-int ball_moves(sfEvent event, game_t *game, int a)
+int check_ball_pos(sfEvent event, game_t *game, int a)
 {
     if (game->ball->pos.x < 0 || game->ball->pos.x > 1920
     || game->ball->pos.y < 0 || game->ball->pos.y > 1080 || (a == 0 &&
@@ -19,6 +19,13 @@ int ball_moves(sfEvent event, game_t *game, int a)
         game->ball->pos.y = game->player->elem->pos.y;
         return (0);
     }
+    return (1);
+}
+
+int ball_moves(sfEvent event, game_t *game, int a)
+{
+    if (check_ball_pos(event, game, a) == 0)
+        return (0);
     if (a == 1 || game->ball->pos.x < game->player->elem->pos.x) {
         game->ball->pos.x += -40;
         return (0);
