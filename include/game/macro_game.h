@@ -33,7 +33,7 @@
 
 // BALL
 #define BALL_TEXTURE "resources/character/fireball.png"
-#define POS_BALL (sfVector2f){1920 / 2 - 64 - 20, 1080 / 2 - 64 - 20}
+#define POS_BALL (sfVector2f){1920 / 2 - 64, 1080 / 2 - 64}
 #define RECT_BALL (sfIntRect){0, 0, 947, 843}
 #define SCALE_BALL (sfVector2f){0.05, 0.05}
 
