@@ -12,11 +12,11 @@ void follow_player(player_t *player, enemy_t **enemies)
     int i = 0;
 
     while (enemies[i]) {
-        if (enemies[i]->elem->pos.x < player->elem->pos.x)
+        if (enemies[i]->elem->pos.x - 32 < player->elem->pos.x)
             enemies[i]->elem->pos.x += enemies[i]->speed;
         else
             enemies[i]->elem->pos.x -= enemies[i]->speed;
-        if (enemies[i]->elem->pos.y < player->elem->pos.y)
+        if (enemies[i]->elem->pos.y - 64 < player->elem->pos.y)
             enemies[i]->elem->pos.y += enemies[i]->speed;
         else
             enemies[i]->elem->pos.y -= enemies[i]->speed;
