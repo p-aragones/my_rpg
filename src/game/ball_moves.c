@@ -7,7 +7,7 @@
 
 #include "game.h"
 
-int ball_moves(sfEvent event, game_t *game, int a)
+void get_direction(game_t *game, int a)
 {
     if (a == 1)
         game->ball_dir = 1;
@@ -18,9 +18,14 @@ int ball_moves(sfEvent event, game_t *game, int a)
     if (a == 4)
         game->ball_dir = 4;
     if (a > 0 && a < 5) {
-        game->ball->pos.x = game->player->elem->pos.x;
-        game->ball->pos.y = game->player->elem->pos.y;
+        game->ball->pos.x = game->player->elem->pos.x + 32;
+        game->ball->pos.y = game->player->elem->pos.y + 32;
     }
+}
+
+int ball_moves(sfEvent event, game_t *game, int a)
+{
+    get_direction(game, a);
     if (game->ball_dir == 1) {
         game->ball->pos.x += -30;
     }
