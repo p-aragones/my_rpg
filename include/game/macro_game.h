@@ -42,7 +42,7 @@
 #define RECT_BAT (sfIntRect){0, 0, 48, 48}
 #define SCALE_BAT (sfVector2f){2.5, 2.5}
 // [HEALTH, SPEED]
-#define BAT_STATS 5, 3
+#define BAT_STATS 5, 4
 
 #define DIP_TEXTURE "resources/enemies/dip.png"
 #define POS_DIP (sfVector2f){0, 0}
@@ -56,7 +56,7 @@
 #define RECT_GHOST (sfIntRect){0, 0, 32, 32}
 #define SCALE_GHOST (sfVector2f){2.5, 2.5}
 // [HEALTH, SPEED]
-#define GHOST_STATS 1, 4
+#define GHOST_STATS 1, 5
 
 #define HEAD_TEXTURE "resources/enemies/head.png"
 #define POS_HEAD (sfVector2f){0, 0}
@@ -70,6 +70,6 @@
 #define RECT_SPIKE (sfIntRect){0, 0, 48, 48}
 #define SCALE_SPIKE (sfVector2f){3, 3}
 // [HEALTH, SPEED]
-#define SPIKE_STATS 10, 2
+#define SPIKE_STATS 10, 1
 
 #endif /* !MACRO_GAME_H_ */
