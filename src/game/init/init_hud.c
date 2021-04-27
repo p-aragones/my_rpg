@@ -25,6 +25,23 @@ elem_t **init_hearts(void)
     return (hearts);
 }
 
+text_t *init_score(void)
+{
+    text_t *score = malloc(sizeof(text_t));
+
+    if (!score)
+        return (NULL);
+    score->font = sfFont_createFromFile(FONT);
+    score->num = 0;
+    score->pos = SCORE_POS;
+    score->text = sfText_create();
+    sfText_setString(score->text, my_its(score->num));
+    sfText_setFont(score->text, score->font);
+    sfText_setPosition(score->text, score->pos);
+    sfText_setCharacterSize(score->text, SCORE_SIZE);
+    return (score);
+}
+
 hud_t *init_hud(void)
 {
     hud_t *hud = malloc(sizeof(hud_t));
@@ -32,5 +49,6 @@ hud_t *init_hud(void)
     if (!hud)
         return (NULL);
     hud->hearts = init_hearts();
+    hud->room = init_score();
     return (hud);
 }

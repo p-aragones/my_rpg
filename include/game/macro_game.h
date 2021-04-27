@@ -43,6 +43,9 @@
 #define RECT_HEART (sfIntRect){0, 0, 720, 720}
 #define SCALE_HEART (sfVector2f){0.05, 0.05}
 
+#define SCORE_POS (sfVector2f){1920 / 2, 10}
+#define SCORE_SIZE 80
+
 // ENEMIES
 #define BAT_TEXTURE "resources/enemies/bat.png"
 #define POS_BAT (sfVector2f){0, 0}

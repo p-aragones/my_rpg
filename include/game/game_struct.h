@@ -35,6 +35,7 @@ typedef struct room_s {
 
 typedef struct hud_s {
     elem_t **hearts;
+    text_t *room;
 } hud_t;
 
 typedef struct game_s {

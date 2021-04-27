@@ -16,6 +16,13 @@ typedef struct fps_s {
     sfText *text;
 } fps_t;
 
+typedef struct text_s {
+    int num;
+    sfFont *font;
+    sfText *text;
+    sfVector2f pos;
+} text_t;
+
 typedef struct clock_struct_s {
     sfClock *clock;
     sfTime time;

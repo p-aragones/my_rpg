@@ -20,4 +20,5 @@ void draw_hearts(hud_t *hud, int lives, sfRenderWindow *window)
 void draw_hud(hud_t *hud, int lives, sfRenderWindow *window)
 {
     draw_hearts(hud, lives, window);
+    sfRenderWindow_drawText(window, hud->room->text, NULL);
 }
