@@ -10,7 +10,7 @@
 void get_direction(game_t *game, int a)
 {
     if (game->ball->pos.x < 0 || game->ball->pos.x > 1920
-    || game->ball->pos.y < 0 || game->ball->pos.y > 1920) {
+    || game->ball->pos.y < 0 || game->ball->pos.y > 1080) {
         if (a == 1)
             game->ball_dir = 1;
         if (a == 2)
