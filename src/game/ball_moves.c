@@ -9,17 +9,20 @@
 
 void get_direction(game_t *game, int a)
 {
-    if (a == 1)
-        game->ball_dir = 1;
-    if (a == 2)
-        game->ball_dir = 2;
-    if (a == 3)
-        game->ball_dir = 3;
-    if (a == 4)
-        game->ball_dir = 4;
-    if (a > 0 && a < 5) {
-        game->ball->pos.x = game->player->elem->pos.x + 32;
-        game->ball->pos.y = game->player->elem->pos.y + 32;
+    if (game->ball->pos.x < 0 || game->ball->pos.x > 1920
+    || game->ball->pos.y < 0 || game->ball->pos.y > 1080) {
+        if (a == 1)
+            game->ball_dir = 1;
+        if (a == 2)
+            game->ball_dir = 2;
+        if (a == 3)
+            game->ball_dir = 3;
+        if (a == 4)
+            game->ball_dir = 4;
+        if (a > 0 && a < 5) {
+            game->ball->pos.x = game->player->elem->pos.x + 40;
+            game->ball->pos.y = game->player->elem->pos.y + 32;
+        }
     }
 }
 
