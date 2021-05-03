@@ -33,12 +33,12 @@
 
 // NPC
 #define NPC_TEXTURE "resources/character/old_man.png"
-#define POS_NPC (sfVector2f){1920 / 2 - 128, 75}
+#define POS_NPC (sfVector2f){1920 / 2 - 80, 100}
 #define RECT_NPC (sfIntRect){0, 0, 180, 120}
 #define SCALE_NPC (sfVector2f){1, 1}
-#define POS_TEXT_NPC (sfVector2f){1920 / 2 - 200, 150}
 
-#define POS_BALL_NPC (sfVector2f){1920 / 2 - 64, 200}
+#define POS_TEXT_NPC (sfVector2f){1920 / 2 - 280, 175}
+#define POS_BALL_NPC (sfVector2f){1920 / 2 - 20, 1080 / 2 - 100}
 
 // BALL
 #define BALL_TEXTURE "resources/character/fireball.png"
