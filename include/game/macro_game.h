@@ -82,4 +82,6 @@
 // [HEALTH, SPEED]
 #define SPIKE_STATS 10, 1
 
+#define SCALE_BOSS (sfVector2f){10, 10}
+
 #endif /* !MACRO_GAME_H_ */
