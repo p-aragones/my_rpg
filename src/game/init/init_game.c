@@ -19,6 +19,7 @@ game_t *init_game(void)
     game->ball = create_elem(BALL_TEXTURE, POS_BALL, RECT_BALL);
     game->ball_dir = 0;
     game->hud = init_hud();
+    game->npc = init_npc();
     sfSprite_setScale(game->ball->sprite, SCALE_BALL);
     return (game);
 }
