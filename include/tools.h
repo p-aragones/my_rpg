@@ -32,4 +32,7 @@ char *my_its(int);
 
 int check_button(button_t **buttons, int size);
 
+void zoom(sfRenderWindow *window, sfSprite *sprite);
+void dezoom(sfRenderWindow *window, sfSprite *sprite);
+
 #endif

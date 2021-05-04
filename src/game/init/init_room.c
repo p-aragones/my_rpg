@@ -26,6 +26,6 @@ room_t *init_room(void)
     sfSprite_setScale(room->backdoor->sprite, SCALE_DOOR);
     sfSprite_setRotation(room->door->sprite, 90);
     sfSprite_setRotation(room->backdoor->sprite, 270);
-    sfSprite_setScale(room->elem->sprite, SCALE_BG);
+    sfSprite_setScale(room->elem->sprite, SCALE_BG_START);
     return (room);
 }
