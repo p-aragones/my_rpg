@@ -29,6 +29,7 @@ void draw_enemies(enemy_t **enemies, sfRenderWindow *window)
     while (enemies[i]) {
         sfSprite_setPosition(enemies[i]->elem->sprite, enemies[i]->elem->pos);
         sfRenderWindow_drawSprite(window, enemies[i]->elem->sprite, NULL);
+        sfRenderWindow_drawRectangleShape(window, enemies[i]->hitbox, NULL);
         i++;
     }
 }
