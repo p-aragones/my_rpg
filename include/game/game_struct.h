@@ -28,6 +28,7 @@ typedef struct player_s {
     int health;
     float dmg;
     float speed;
+    sfRectangleShape *hitbox;
 } player_t;
 
 typedef struct room_s {
