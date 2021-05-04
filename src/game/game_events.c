@@ -65,8 +65,10 @@ int game_events(sfEvent event, game_t *game, window_t *window)
     if (game->room->n_enemies == 0)
         game->room->locked = 0;
     if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
-    game->room->locked == 0)
+    game->room->locked == 0) {
         generate_room(game);
+        dust_effect(window->window, game);
+    }
     while (sfRenderWindow_pollEvent(window->window, &event)) {
         if (event.key.code == sfKeyEscape)
             sfRenderWindow_close(window->window);

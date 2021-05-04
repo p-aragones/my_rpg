@@ -43,4 +43,6 @@ void display_game(game_t *, sfRenderWindow *);
 
 int game_events(sfEvent, game_t *, window_t *);
 
+void dust_effect(sfRenderWindow *window, game_t *game);
+
 #endif /* !GAME_H_ */
