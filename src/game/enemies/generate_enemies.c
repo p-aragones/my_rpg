@@ -11,6 +11,7 @@ enemy_t *create_enemy(void)
 {
     enemy_t *enemy = NULL;
     int random = rand() % 5;
+    sfVector2u size = (sfVector2u) {0, 0};
 
     if (random == 0)
         enemy = create_bat(BAT_STATS);
@@ -24,6 +25,8 @@ enemy_t *create_enemy(void)
         enemy = create_spike(SPIKE_STATS);
     if (!enemy)
         return (NULL);
+    size = sfTexture_getSize(enemy->elem->texture);
+    enemy->hitbox = create_rectangle(enemy->elem->pos, sfGreen, size);
     return (enemy);
 }
 
