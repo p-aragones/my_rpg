@@ -8,6 +8,8 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+#include <math.h>
+
 #include "rpg.h"
 #include "game_struct.h"
 #include "macro_game.h"
@@ -45,5 +47,10 @@ int game_events(sfEvent, game_t *, window_t *);
 
 void dust_effect(sfRenderWindow *window, game_t *game);
 void frozen(sfRenderWindow *window, int);
+
+void my_put_pixel(framebuffer_t *frbuff,
+                    unsigned int x,
+                    unsigned int y,
+                    sfColor color);
 
 #endif /* !GAME_H_ */

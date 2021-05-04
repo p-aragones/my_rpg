@@ -10,7 +10,6 @@
 player_t *init_player(void)
 {
     player_t *player = malloc(sizeof(player_t));
-    sfVector
 
     if (!player)
         return (NULL);
@@ -21,6 +20,5 @@ player_t *init_player(void)
     player->dmg = 1;
     player->speed = 20;
     player->health = 3;
-    player->hitbox = create_rectangle(player->elem->pos, sfGreen, );
     return (player);
 }
