@@ -49,9 +49,20 @@ int game_events(sfEvent, game_t *, window_t *);
 void dust_effect(sfRenderWindow *window, game_t *game);
 void frozen(sfRenderWindow *window, int);
 
+// PIXEL
 void my_put_pixel(framebuffer_t *frbuff,
                     unsigned int x,
                     unsigned int y,
+                    sfColor color);
+framebuffer_t *framebuffer_create(unsigned int width, unsigned int height);
+void framebuffer_destroy(framebuffer_t *framebuffer);
+int my_draw_circle(framebuffer_t *framebuffer,
+                    sfVector2i center,
+                    int radius,
+                    sfColor color);
+void my_draw_square(framebuffer_t *buffer,
+                    sfVector2u position,
+                    unsigned int size,
                     sfColor color);
 
 #endif /* !GAME_H_ */
