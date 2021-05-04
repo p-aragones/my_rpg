@@ -10,6 +10,12 @@
 
 #include "struct.h"
 
+typedef struct framebuffer {
+    unsigned int width;
+    unsigned int height;
+    sfUint8 *pixels;
+} framebuffer_t;
+
 typedef struct inventory_s {
     elem_t *inv;
     elem_t **obj;
