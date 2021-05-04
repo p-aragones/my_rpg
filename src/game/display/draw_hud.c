@@ -17,8 +17,20 @@ void draw_hearts(hud_t *hud, int lives, sfRenderWindow *window)
     }
 }
 
+void draw_inv(hud_t *hud, sfRenderWindow *window)
+{
+    int i = 0;
+
+    sfRenderWindow_drawSprite(window, hud->inv->inv->sprite, NULL);
+    while (hud->inv->obj[i]) {
+        sfRenderWindow_drawSprite(window, hud->inv->obj[i]->sprite, NULL);
+        i++;
+    }
+}
+
 void draw_hud(hud_t *hud, int lives, sfRenderWindow *window)
 {
     draw_hearts(hud, lives, window);
+    draw_inv(hud, window);
     sfRenderWindow_drawText(window, hud->room->text, NULL);
 }
