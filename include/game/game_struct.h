@@ -49,6 +49,7 @@ typedef struct npc_s {
     elem_t *elem;
     elem_t *ball;
     sfText *text;
+    int dropped;
 } npc_t;
 
 typedef struct game_s {

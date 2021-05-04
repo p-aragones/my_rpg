@@ -15,6 +15,7 @@ npc_t *init_npc(void)
         return (NULL);
     npc->elem = create_elem(NPC_TEXTURE, POS_NPC, RECT_NPC);
     npc->ball = create_elem(BALL_TEXTURE, POS_BALL_NPC, RECT_BALL);
+    npc->dropped = 0;
     sfSprite_setScale(npc->ball->sprite, SCALE_BALL);
     sfSprite_setScale(npc->elem->sprite, SCALE_NPC);
     npc->text = sfText_create();
