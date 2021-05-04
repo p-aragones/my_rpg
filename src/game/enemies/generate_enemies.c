@@ -35,7 +35,8 @@ enemy_t *create_enemy(void)
     if (!enemy)
         return (NULL);
     scale = sfSprite_getScale(enemy->elem->sprite);
-    size = (sfVector2u) {(enemy->elem->rect.width - enemy->elem->rect.left) * scale.x, (enemy->elem->rect.height - enemy->elem->rect.top) * scale.y};
+    size = (sfVector2u) {(enemy->elem->rect.width - enemy->elem->rect.left) *
+    scale.x, (enemy->elem->rect.height - enemy->elem->rect.top) * scale.y};
     enemy->hitbox = create_rectangle(enemy->elem->pos, sfGreen, size);
     return (enemy);
 }
