@@ -12,7 +12,7 @@ CFLAGS	+=	-lcriterion
 
 LDLIBS	+=	-L./lib/ -lmy
 
-LIB		=	-l csfml-graphics -l csfml-system -l csfml-audio
+LIB		=	-l csfml-graphics -l csfml-system -l csfml-audio -lm
 
 PATH_SRC	=	./src/
 
