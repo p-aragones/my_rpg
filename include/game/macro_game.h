@@ -21,9 +21,15 @@
 #define RECT_DOOR (sfIntRect){0, 0, 50, 50}
 #define SCALE_DOOR (sfVector2f){2, 2}
 
+
+// PARTICLES
 #define DUST "resources/room/dust.png"
 #define DUST_POS (sfVector2f){10, 1080 / 2 - 80}
 #define DUST_RECT (sfIntRect){0, 0, 174, 174}
+
+#define FROZEN "resources/room/frozen.png"
+#define FROZ_POS (sfVector2f){1920 / 2 - 100, 1080 / 2 -190}
+#define FROZ_RECT (sfIntRect){0, 0, 190, 186}
 
 // PLAYER
 #define PLAYER_TEXTURE "resources/character/spritesheet.png"

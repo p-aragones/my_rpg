@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** B-MUL-200-BAR-2-1-myrpg-javier.sanchez-castro
 ** File description:
-** dust effect when enter the room
+** diff particles effects
 */
 
 #include "rpg.h"
@@ -30,4 +30,27 @@ void dust_effect(sfRenderWindow *window, game_t *game)
         i++;
         sfSleep(time);
     }
+}
+
+void frozen(sfRenderWindow *window, int dropped)
+{
+    elem_t *frozen;
+    int i = 0;
+    sfTime time = sfMilliseconds(65);
+
+    if (dropped)
+        return;
+    frozen = create_elem(FROZEN, FROZ_POS, FROZ_RECT);
+    while (frozen->rect.top < 929) {
+        sfRenderWindow_drawSprite(window, frozen->sprite, NULL);
+        sfRenderWindow_display(window);
+        sfSprite_setTextureRect(frozen->sprite, frozen->rect);
+        frozen->rect.left += 191;
+        if (frozen->rect.left > 953) {
+            frozen->rect.left = 0;
+            frozen->rect.top += 186;
+        }
+        sfSleep(time);
+    }
+
 }
