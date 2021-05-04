@@ -13,6 +13,7 @@
 #define POS_BG (sfVector2f){0, 0}
 #define RECT_BG (sfIntRect){0, 0, 1366, 768}
 #define SCALE_BG (sfVector2f){1.405, 1.405}
+#define SCALE_BG_START (sfVector2f){3.405, 3.405}
 
 #define DOOR_TEXTURE "resources/room/doors.png"
 #define POS_DOOR (sfVector2f){1900, 1080 / 2}

@@ -24,3 +24,17 @@ void zoom(sfRenderWindow *window, sfSprite *sprite)
         i++;
     }
 }
+
+void dezoom(sfRenderWindow *window, sfSprite *sprite)
+{
+    sfVector2f vec = sfSprite_getScale(sprite);
+
+    while (vec.x > 1.405) {
+        sfRenderWindow_clear(window, sfBlack);
+        sfRenderWindow_drawSprite(window, sprite, NULL);
+        sfSprite_setScale(sprite, vec);
+        sfRenderWindow_display(window);
+        vec.x -= 0.1;
+        vec.y -= 0.1;
+    }
+}

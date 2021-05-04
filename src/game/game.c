@@ -16,6 +16,7 @@ int game(window_t *window)
     if (!game)
         return (84);
     srand(time(NULL));
+    dezoom(window->window, game->room->elem->sprite);
     while (sfRenderWindow_isOpen(window->window)) {
         game_events(event, game, window);
         display_game(game, window->window);
