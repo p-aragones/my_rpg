@@ -42,6 +42,39 @@ text_t *init_score(void)
     return (score);
 }
 
+elem_t **init_obj(void)
+{
+    elem_t **obj = malloc(sizeof(elem_t *) * NUM_OBJ);
+    int i = 0;
+
+    if (!obj)
+        return (NULL);
+    obj[0] = create_elem(ARROW_TEXTURE, START_OBJ, OBJ_RECT);
+    obj[1] = create_elem(CROSS_TEXTURE, START_OBJ, OBJ_RECT);
+    obj[2] = create_elem(SNACK_TEXTURE, START_OBJ, OBJ_RECT);
+    obj[3] = create_elem(WHIP_TEXTURE, START_OBJ, OBJ_RECT);
+    obj[4] = NULL;
+
+    for (i = 0; i < 4; i++)
+        if (!obj[i])
+            return (NULL);
+    return (obj);
+}
+
+inventory_t *init_inv(void)
+{
+    inventory_t *inv = malloc(sizeof(inventory_t));
+
+    if (!inv)
+        return (NULL);
+    inv->inv = create_elem(INV_TEXTURE, INV_POS, INV_RECT);
+    inv->obj = init_obj();
+    if (!inv->inv || !inv->obj)
+        return (NULL);
+    sfSprite_setScale(inv->inv->sprite, INV_SCALE);
+    return (inv);
+}
+
 hud_t *init_hud(void)
 {
     hud_t *hud = malloc(sizeof(hud_t));
@@ -50,5 +83,8 @@ hud_t *init_hud(void)
         return (NULL);
     hud->hearts = init_hearts();
     hud->room = init_score();
+    hud->inv = init_inv();
+    if (!hud->hearts || !hud->room || !hud->inv)
+        return (NULL);
     return (hud);
 }

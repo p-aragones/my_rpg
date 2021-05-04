@@ -91,6 +91,33 @@
 // [HEALTH, SPEED]
 #define SPIKE_STATS 10, 1
 
+// INVENTORY
+
+#define NUM_OBJ 5
+
+#define START_OBJ (sfVector2f){-1000, -1000}
+#define OBJ_RECT (sfIntRect){0, 0, 32, 32}
+
+#define INV_TEXTURE "resources/items/inventory.png"
+#define INV_POS (sfVector2f){1520, 980}
+#define INV_RECT (sfIntRect){0, 0, 145, 35}
+#define INV_SCALE (sfVector2f){2.2, 2.2}
+
+#define ARROW_TEXTURE "resources/items/arrow.png"
+#define ARROW_POS (sfVector2f){1710, 910}
+
+#define CROSS_TEXTURE "resources/items/cross.png"
+#define CROSS_POS  (sfVector2f){1760, 910}
+
+#define SNACK_TEXTURE "resources/items/snack.png"
+#define SNACK_POS  (sfVector2f){1810, 910}
+
+#define WHIP_TEXTURE "resources/items/whip.png"
+#define WHIP_POS  (sfVector2f){1860, 910}
+
+
+// BOSS
+
 #define SCALE_BOSS (sfVector2f){10, 10}
 
 #endif /* !MACRO_GAME_H_ */

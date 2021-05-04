@@ -10,7 +10,12 @@
 
 #include "struct.h"
 
-typedef struct enemy_t {
+typedef struct inventory_s {
+    elem_t *inv;
+    elem_t **obj;
+} inventory_t;
+
+typedef struct enemy_s {
     elem_t *elem;
     int health;
     int dmg;
@@ -37,6 +42,7 @@ typedef struct room_s {
 typedef struct hud_s {
     elem_t **hearts;
     text_t *room;
+    inventory_t *inv;
 } hud_t;
 
 typedef struct npc_s {
