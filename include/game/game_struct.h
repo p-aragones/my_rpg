@@ -32,6 +32,7 @@ typedef struct player_s {
 typedef struct room_s {
     elem_t *elem;
     elem_t *door;
+    elem_t *heart;
     elem_t *backdoor;
     enemy_t **enemies;
     int n_enemies;
@@ -44,9 +45,16 @@ typedef struct hud_s {
     inventory_t *inv;
 } hud_t;
 
+typedef struct npc_s {
+    elem_t *elem;
+    elem_t *ball;
+    sfText *text;
+} npc_t;
+
 typedef struct game_s {
     room_t *room;
     player_t *player;
+    npc_t *npc;
     elem_t *ball;
     int ball_dir;
     hud_t *hud;

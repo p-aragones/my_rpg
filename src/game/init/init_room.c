@@ -19,6 +19,7 @@ room_t *init_room(void)
     room->elem = create_elem(ROOM_BG, POS_BG, RECT_BG);
     room->door = create_elem(DOOR_TEXTURE, POS_DOOR, RECT_DOOR);
     room->backdoor = create_elem(DOOR_TEXTURE, POS_BDOOR, RECT_DOOR);
+    room->heart = NULL;
     if (!room->elem || !room->door || !room->backdoor)
         return (NULL);
     sfSprite_setScale(room->door->sprite, SCALE_DOOR);

@@ -9,10 +9,10 @@
 
 elem_t **init_hearts(void)
 {
-    elem_t **hearts = malloc(sizeof(elem_t *) * (3 + 1));
+    elem_t **hearts = malloc(sizeof(elem_t *) * (10 + 1));
     int i = 0;
 
-    while (i < 3) {
+    while (i < 10) {
         hearts[i] = create_elem(HEART_TEXTURE, POS_HEART, RECT_HEART);
         sfSprite_setScale(hearts[i]->sprite, SCALE_HEART);
         hearts[i]->pos.x += i * 37;

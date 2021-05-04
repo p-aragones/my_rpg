@@ -19,7 +19,9 @@ game_t *init_game(void)
     game->ball = create_elem(BALL_TEXTURE, POS_BALL, RECT_BALL);
     game->ball_dir = 0;
     game->hud = init_hud();
-    if (!game->room || !game->player || !game->ball || !game->hud)
+    game->npc = init_npc();
+    if (!game->room || !game->player || !game->ball ||
+    !game->hud || !game->npc)
         return (NULL);
     sfSprite_setScale(game->ball->sprite, SCALE_BALL);
     return (game);

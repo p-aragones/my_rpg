@@ -34,9 +34,11 @@ player_t *init_player(void);
 room_t *init_room(void);
 hud_t *init_hud(void);
 game_t *init_game(void);
+npc_t *init_npc(void);
 
 // DISPLAY
 void draw_hud(hud_t *, int , sfRenderWindow *);
+void draw_npc(player_t *, npc_t *, sfRenderWindow *);
 void display_game(game_t *, sfRenderWindow *);
 
 int game_events(sfEvent, game_t *, window_t *);

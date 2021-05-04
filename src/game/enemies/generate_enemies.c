@@ -27,7 +27,7 @@ enemy_t *create_enemy(void)
     return (enemy);
 }
 
-game_t *generate_enemies(game_t *game)
+game_t *no_boss(game_t *game)
 {
     int n_enemies = (rand() % 3) + 3;
     game->room->enemies = malloc(sizeof(enemy_t *) * (n_enemies + 1));
@@ -43,4 +43,26 @@ game_t *generate_enemies(game_t *game)
         i++;
     }
     game->room->enemies[i] = NULL;
+}
+
+game_t *generate_boss(game_t *game)
+{
+    game->room->enemies = malloc(sizeof(enemy_t *) * (1 + 1));
+
+    if (!game->room->enemies)
+        return (NULL);
+    game->room->n_enemies = 1;
+    game->room->enemies[0] = create_enemy();
+    game->room->enemies[0]->health = 50;
+    game->room->enemies[1] = NULL;
+    sfSprite_setScale(game->room->enemies[0]->elem->sprite, SCALE_BOSS);
+}
+
+game_t *generate_enemies(game_t *game)
+{
+    if (game->hud->room->num % 5 == 0)
+        game = generate_boss(game);
+    else
+        game = no_boss(game);
+    return (game);
 }

@@ -31,6 +31,15 @@
 #define LEFT -1, 0
 #define RIGHT 1, 0
 
+// NPC
+#define NPC_TEXTURE "resources/character/old_man.png"
+#define POS_NPC (sfVector2f){1920 / 2 - 80, 100}
+#define RECT_NPC (sfIntRect){0, 0, 180, 120}
+#define SCALE_NPC (sfVector2f){1, 1}
+
+#define POS_TEXT_NPC (sfVector2f){1920 / 2 - 280, 175}
+#define POS_BALL_NPC (sfVector2f){1920 / 2 - 20, 1080 / 2 - 100}
+
 // BALL
 #define BALL_TEXTURE "resources/character/fireball.png"
 #define POS_BALL (sfVector2f){-100, -100}
@@ -82,7 +91,6 @@
 // [HEALTH, SPEED]
 #define SPIKE_STATS 10, 1
 
-
 // INVENTORY
 
 #define NUM_OBJ 5
@@ -107,5 +115,9 @@
 #define WHIP_TEXTURE "resources/items/whip.png"
 #define WHIP_POS  (sfVector2f){1860, 910}
 
+
+// BOSS
+
+#define SCALE_BOSS (sfVector2f){10, 10}
 
 #endif /* !MACRO_GAME_H_ */
