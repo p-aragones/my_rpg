@@ -20,6 +20,7 @@ void draw_player(player_t *player, sfRenderWindow *window)
     sfSprite_setTextureRect(player->elem->sprite, player->elem->rect);
     sfSprite_setPosition(player->elem->sprite, player->elem->pos);
     sfRenderWindow_drawSprite(window, player->elem->sprite, NULL);
+    sfRenderWindow_drawRectangleShape(window, player->hitbox, NULL);
 }
 
 void draw_enemies(enemy_t **enemies, sfRenderWindow *window)
@@ -29,6 +30,7 @@ void draw_enemies(enemy_t **enemies, sfRenderWindow *window)
     while (enemies[i]) {
         sfSprite_setPosition(enemies[i]->elem->sprite, enemies[i]->elem->pos);
         sfRenderWindow_drawSprite(window, enemies[i]->elem->sprite, NULL);
+        sfRenderWindow_drawRectangleShape(window, enemies[i]->hitbox, NULL);
         i++;
     }
 }

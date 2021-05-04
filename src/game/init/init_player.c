@@ -10,6 +10,9 @@
 player_t *init_player(void)
 {
     player_t *player = malloc(sizeof(player_t));
+    sfVector2u size = (sfVector2u) {0, 0};
+    sfVector2f scale = SCALE_PLAYER;
+    sfVector2f pos_hit = (sfVector2f) {0, 0};
 
     if (!player)
         return (NULL);
@@ -20,5 +23,10 @@ player_t *init_player(void)
     player->dmg = 1;
     player->speed = 20;
     player->health = 3;
+    size = (sfVector2u) {70, 100};
+    printf("size.x: %d --- y: %d\n", size.x, size.y);
+    pos_hit.x = player->elem->pos.x + 30;
+    pos_hit.y = player->elem->pos.y + 30;
+    player->hitbox = create_rectangle(pos_hit, sfGreen, size);
     return (player);
 }

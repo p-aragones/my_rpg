@@ -20,6 +20,7 @@ typedef struct enemy_s {
     int health;
     int dmg;
     int speed;
+    sfRectangleShape *hitbox;
 } enemy_t;
 
 typedef struct player_s {
@@ -27,6 +28,7 @@ typedef struct player_s {
     int health;
     float dmg;
     float speed;
+    sfRectangleShape *hitbox;
 } player_t;
 
 typedef struct room_s {
