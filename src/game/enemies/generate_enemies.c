@@ -7,7 +7,7 @@
 
 #include "game.h"
 
-enemy_t *create_enemy(void)
+enemy_t *get_enemy(void)
 {
     enemy_t *enemy = NULL;
     int random = rand() % 5;
@@ -23,9 +23,19 @@ enemy_t *create_enemy(void)
         enemy = create_head(HEAD_STATS);
     if (random == 4)
         enemy = create_spike(SPIKE_STATS);
+    return (enemy);
+}
+
+enemy_t *create_enemy(void)
+{
+    enemy_t *enemy = get_enemy();
+    sfVector2u size = (sfVector2u) {0, 0};
+    sfVector2f scale = (sfVector2f) {0, 0};
+
     if (!enemy)
         return (NULL);
-    size = sfTexture_getSize(enemy->elem->texture);
+    scale = sfSprite_getScale(enemy->elem->sprite);
+    size = (sfVector2u) {(enemy->elem->rect.width - enemy->elem->rect.left) * scale.x, (enemy->elem->rect.height - enemy->elem->rect.top) * scale.y};
     enemy->hitbox = create_rectangle(enemy->elem->pos, sfGreen, size);
     return (enemy);
 }
