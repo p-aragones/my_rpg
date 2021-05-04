@@ -20,6 +20,7 @@ void follow_player(player_t *player, enemy_t **enemies)
             enemies[i]->elem->pos.y += enemies[i]->speed;
         else
             enemies[i]->elem->pos.y -= enemies[i]->speed;
+        sfRectangleShape_setPosition(enemies[i]->hitbox, enemies[i]->elem->pos);
         i++;
     }
 }
