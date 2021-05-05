@@ -27,5 +27,6 @@ player_t *init_player(void)
     pos_hit.x = player->elem->pos.x + 30;
     pos_hit.y = player->elem->pos.y + 30;
     player->hitbox = create_rectangle(pos_hit, sfGreen, size);
+    player->health_time = sfClock_create();
     return (player);
 }
