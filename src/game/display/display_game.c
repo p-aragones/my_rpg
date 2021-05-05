@@ -59,12 +59,17 @@ bool check_colision_rectangle(sfRectangleShape *r1, sfRectangleShape *r2)
 void check_colision_to_player(game_t *game)
 {
     sfRectangleShape *player = game->player->hitbox;
+    sfTime time_clock = sfClock_getElapsedTime(game->player->health_time);
+    float time = sfTime_asSeconds(time_clock);
 
     if (!game->room->enemies)
         return;
-    for (int i = 0; game->room->enemies[i]; i++) {
-        if (check_colision_rectangle(player, game->room->enemies[i]->hitbox))
+    for (int i = 0; time > 3 && game->room->enemies[i]; i++) {
+        if (check_colision_rectangle(player, game->room->enemies[i]->hitbox)) {
             game->player->health--;
+            sfClock_restart(game->player->health_time);
+        }
+        time = sfTime_asSeconds(time_clock);
     }
 }
 
