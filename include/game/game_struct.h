@@ -8,6 +8,7 @@
 #ifndef GAME_STRUCT_H_
 #define GAME_STRUCT_H_
 
+#include <stdbool.h>
 #include "struct.h"
 
 typedef struct framebuffer {
@@ -52,6 +53,7 @@ typedef struct hud_s {
     elem_t **hearts;
     text_t *room;
     inventory_t *inv;
+    int hitboxes;
 } hud_t;
 
 typedef struct npc_s {

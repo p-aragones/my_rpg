@@ -32,6 +32,10 @@ void follow_player(player_t *, enemy_t **);
 // ROOM
 int generate_room(game_t *);
 
+// HITBOXES
+void check_colision_to_player(game_t *);
+bool check_colision_rectangle(sfRectangleShape *, sfRectangleShape *);
+
 // INIT
 player_t *init_player(void);
 room_t *init_room(void);

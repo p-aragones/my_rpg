@@ -16,22 +16,24 @@ void draw_room(room_t *room, sfRenderWindow *window)
     sfRenderWindow_drawSprite(window, room->backdoor->sprite, NULL);
 }
 
-void draw_player(player_t *player, sfRenderWindow *window)
+void draw_player(player_t *player, sfRenderWindow *window, int hitbox)
 {
     sfSprite_setTextureRect(player->elem->sprite, player->elem->rect);
     sfSprite_setPosition(player->elem->sprite, player->elem->pos);
     sfRenderWindow_drawSprite(window, player->elem->sprite, NULL);
-    sfRenderWindow_drawRectangleShape(window, player->hitbox, NULL);
+    if (hitbox > 0)
+        sfRenderWindow_drawRectangleShape(window, player->hitbox, NULL);
 }
 
-void draw_enemies(enemy_t **enemies, sfRenderWindow *window)
+void draw_enemies(enemy_t **enemies, sfRenderWindow *window, int hitbox)
 {
     int i = 0;
 
     while (enemies[i]) {
         sfSprite_setPosition(enemies[i]->elem->sprite, enemies[i]->elem->pos);
         sfRenderWindow_drawSprite(window, enemies[i]->elem->sprite, NULL);
-        sfRenderWindow_drawRectangleShape(window, enemies[i]->hitbox, NULL);
+        if (hitbox > 0)
+            sfRenderWindow_drawRectangleShape(window, enemies[i]->hitbox, NULL);
         i++;
     }
 }
@@ -42,46 +44,15 @@ void draw_ball(elem_t *ball, sfRenderWindow *window)
     sfRenderWindow_drawSprite(window, ball->sprite, NULL);
 }
 
-bool check_colision_rectangle(sfRectangleShape *r1, sfRectangleShape *r2)
-{
-    sfVector2f r1_pos = sfRectangleShape_getPosition(r1);
-    sfVector2f r2_pos = sfRectangleShape_getPosition(r2);
-    sfVector2f r1_size = sfRectangleShape_getSize(r1);
-    sfVector2f r2_size = sfRectangleShape_getSize(r2);
-    bool collision_x = r1_pos.x + r1_size.x >= r2_pos.x &&
-    r2_pos.x + r2_size.x >= r1_pos.x;
-    bool collision_y = r1_pos.y + r1_size.y >= r2_pos.y &&
-    r2_pos.y + r2_size.y >= r1_pos.y;
-
-    return (collision_x && collision_y);
-}
-
-void check_colision_to_player(game_t *game)
-{
-    sfRectangleShape *player = game->player->hitbox;
-    sfTime time_clock = sfClock_getElapsedTime(game->player->health_time);
-    float time = sfTime_asSeconds(time_clock);
-
-    if (!game->room->enemies)
-        return;
-    for (int i = 0; time > 3 && game->room->enemies[i]; i++) {
-        if (check_colision_rectangle(player, game->room->enemies[i]->hitbox)) {
-            game->player->health--;
-            sfClock_restart(game->player->health_time);
-        }
-        time = sfTime_asSeconds(time_clock);
-    }
-}
-
 void display_game(game_t *game, sfRenderWindow *window)
 {
     sfRenderWindow_clear(window, sfBlack);
     draw_room(game->room, window);
-    draw_player(game->player, window);
+    draw_player(game->player, window, game->hud->hitboxes);
     if (game->hud->room->num == 0)
         draw_npc(game->player, game->npc, window);
     if (game->room->enemies != NULL)
-        draw_enemies(game->room->enemies, window);
+        draw_enemies(game->room->enemies, window, game->hud->hitboxes);
     draw_ball(game->ball, window);
     draw_hud(game->hud, game->player->health, window);
     check_colision_to_player(game);
