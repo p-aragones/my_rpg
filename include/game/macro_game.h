@@ -31,8 +31,12 @@
 #define FROZ_POS (sfVector2f){1920 / 2 - 100, 1080 / 2 -190}
 #define FROZ_RECT (sfIntRect){0, 0, 190, 186}
 
+#define POS_PIX_S (sfVector2u){10, 1080 / 2 - 80}
+#define BLACK (sfColor){50, 50, 50, 1}
+
 // PLAYER
 #define PLAYER_TEXTURE "resources/character/spritesheet.png"
+#define GIRL_TEXTURE "resources/character/girl.PNG"
 #define POS_PLAYER (sfVector2f){1920 / 2 - 64, 1080 / 2 - 64}
 #define RECT_PLAYER (sfIntRect){0, 640, 64, 64}
 #define SCALE_PLAYER (sfVector2f){2, 2}
