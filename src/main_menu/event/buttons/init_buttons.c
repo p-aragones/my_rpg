@@ -7,10 +7,10 @@
 
 #include "main_menu.h"
 
-button_t *init_button_fonc(button_t *button, FONC_CLICK)
+button_t *init_button_func(button_t *button, FUNC_CLICK)
 {
-    button->hover_fonc = &hover;
-    button->click_fonc = click_fonc;
+    button->hover_func = &hover;
+    button->click_func = click_func;
     return (button);
 }
 
@@ -61,16 +61,16 @@ button_t **init_buttons(void)
     if (!buttons)
         return (NULL);
     buttons[0] = init_button_elem(PLAY_INFO);
-    buttons[0] = init_button_fonc(buttons[0], PLAY_FONC_C);
+    buttons[0] = init_button_func(buttons[0], PLAY_FUNC_C);
     buttons[0] = init_button_texture(buttons[0], PLAY_TEXTURE);
     buttons[1] = init_button_elem(EXIT_INFO);
-    buttons[1] = init_button_fonc(buttons[1], EXIT_FONC_C);
+    buttons[1] = init_button_func(buttons[1], EXIT_FUNC_C);
     buttons[1] = init_button_texture(buttons[1], EXIT_TEXTURE);
     buttons[2] = init_button_elem(SOUND_INFO);
-    buttons[2] = init_button_fonc(buttons[2], SOUND_FONC_C);
+    buttons[2] = init_button_func(buttons[2], SOUND_FUNC_C);
     buttons[2] = init_button_texture(buttons[2], SOUND_TEXTURE);
     buttons[3] = init_button_elem(FPS_INFO);
-    buttons[3] = init_button_fonc(buttons[3], FPS_FONC_C);
+    buttons[3] = init_button_func(buttons[3], FPS_FUNC_C);
     buttons[3] = init_button_texture(buttons[3], FPS_TEXTURE);
     buttons[4] = NULL;
     if (check_button(buttons, 4) == 84)

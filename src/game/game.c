@@ -12,13 +12,16 @@ int game(window_t *window)
 {
     sfEvent event;
     game_t *game = init_game();
+    int in_game = 0;
 
     if (!game)
         return (84);
     srand(time(NULL));
     dezoom(window->window, game->room->elem->sprite);
-    while (sfRenderWindow_isOpen(window->window)) {
-        game_events(event, game, window);
+    while (!in_game && sfRenderWindow_isOpen(window->window)) {
+        in_game = game_events(event, game, window);
+        if (in_game)
+            return (in_game);
         display_game(game, window->window);
     }
     return (0);

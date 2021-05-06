@@ -10,8 +10,8 @@
 
 #define N_BUTTONS 7
 
-#define FONC_HOVER int (*hover_fonc)(struct button_s *button)
-#define FONC_CLICK int (*click_fonc)(window_t *, menu_t *, \
+#define FUNC_HOVER int (*hover_func)(struct button_s *button)
+#define FUNC_CLICK int (*click_func)(window_t *, menu_t *, \
 struct button_s *button)
 
 #define SCALE_BTN (sfVector2f){3, 3}
@@ -23,7 +23,7 @@ struct button_s *button)
 #define POS_PLAY (sfVector2f){X_WINDOW / 2 - 70, Y_WINDOW / 2 - 35}
 #define RECT_PLAY (sfIntRect){0, 0, 49, 20}
 #define SIZE_PLAY (sfVector2i){49, 20}
-#define PLAY_FONC_C play_click
+#define PLAY_FUNC_C play_click
 #define PLAY_INFO PLAY_BTN, POS_PLAY, RECT_PLAY, SIZE_PLAY
 #define PLAY_TEXTURE PLAY_HOVER, PLAY_CLICK
 
@@ -33,7 +33,7 @@ struct button_s *button)
 #define POS_EXIT (sfVector2f){X_WINDOW / 2 - 70, Y_WINDOW / 2 + 50}
 #define RECT_EXIT (sfIntRect){0, 0, 49, 20}
 #define SIZE_QUIT (sfVector2i){49, 20}
-#define EXIT_FONC_C exit_click
+#define EXIT_FUNC_C exit_click
 #define EXIT_INFO EXIT_BTN, POS_EXIT, RECT_EXIT, SIZE_QUIT
 #define EXIT_TEXTURE EXIT_HOVER, EXIT_CLICK
 
@@ -44,7 +44,7 @@ sound_on_hover.png"
 #define POS_SOUND (sfVector2f){50, Y_WINDOW / 2 - 200}
 #define RECT_SOUND (sfIntRect){0, 0, 109, 109}
 #define SIZE_SOUND (sfVector2i){109, 109}
-#define SOUND_FONC_C sound_click
+#define SOUND_FUNC_C sound_click
 #define SOUND_INFO SOUND_ON_BTN, POS_SOUND, RECT_SOUND, SIZE_SOUND
 #define SOUND_TEXTURE SOUND_ON_HOVER, SOUND_ON_CLICK
 
@@ -54,7 +54,7 @@ sound_on_hover.png"
 #define POS_FPS (sfVector2f){50, Y_WINDOW / 2 - 300}
 #define RECT_FPS (sfIntRect){0, 0, 49, 20}
 #define SIZE_FPS (sfVector2i){49, 20}
-#define FPS_FONC_C fps_click
+#define FPS_FUNC_C fps_click
 #define FPS_INFO FPS_BTN, POS_FPS, RECT_FPS, SIZE_QUIT
 #define FPS_TEXTURE FPS_HOVER, FPS_CLICK
 
