@@ -43,6 +43,7 @@ room_t *init_room(void);
 hud_t *init_hud(void);
 game_t *init_game(void);
 npc_t *init_npc(void);
+sounds_t *init_sounds(void);
 
 // DISPLAY
 void draw_hud(hud_t *, int , sfRenderWindow *);

@@ -22,6 +22,7 @@ void get_direction(game_t *game, int a)
         if (a > 0 && a < 5) {
             game->ball->pos.x = game->player->elem->pos.x + 40;
             game->ball->pos.y = game->player->elem->pos.y + 32;
+            sfSound_play(game->sounds->shoot);
         }
     }
 }

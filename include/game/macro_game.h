@@ -130,9 +130,12 @@
 #define WHIP_TEXTURE "resources/items/whip.png"
 #define WHIP_POS  (sfVector2f){1860, 910}
 
-
 // BOSS
-
 #define SCALE_BOSS (sfVector2f){10, 10}
+
+// SOUNDS
+#define DOOR_SOUND "resources/sound/door.ogg"
+#define OOF_SOUND "resources/sound/oof.ogg"
+#define SHOT_SOUND "resources/sound/shot.wav"
 
 #endif /* !MACRO_GAME_H_ */

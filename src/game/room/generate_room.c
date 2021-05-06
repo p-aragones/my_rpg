@@ -20,6 +20,7 @@ void free_room(room_t *room)
 
 int generate_room(game_t *game)
 {
+    sfSound_play(game->sounds->door);
     game->hud->room->num += 1;
     if (game->room->enemies)
         free_room(game->room);

@@ -63,13 +63,20 @@ typedef struct npc_s {
     int dropped;
 } npc_t;
 
+typedef struct sounds_s {
+    sfSound *oof;
+    sfSound *shoot;
+    sfSound *door;
+} sounds_t;
+
 typedef struct game_s {
     room_t *room;
     player_t *player;
     npc_t *npc;
     elem_t *ball;
-    int ball_dir;
     hud_t *hud;
+    sounds_t *sounds;
+    int ball_dir;
 } game_t;
 
 #endif /* !GAME_STRUCT_H_ */

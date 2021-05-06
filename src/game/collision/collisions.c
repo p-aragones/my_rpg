@@ -32,6 +32,7 @@ void check_colision_to_player(game_t *game)
     for (int i = 0; time > 3 && game->room->enemies[i]; i++) {
         if (check_colision_rectangle(player, game->room->enemies[i]->hitbox)) {
             game->player->health--;
+            sfSound_play(game->sounds->oof);
             sfClock_restart(game->player->health_time);
         }
         time = sfTime_asSeconds(time_clock);
