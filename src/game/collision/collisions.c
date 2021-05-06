@@ -30,10 +30,31 @@ void check_colision_to_player(game_t *game)
     if (!game->room->enemies)
         return;
     for (int i = 0; time > 3 && game->room->enemies[i]; i++) {
-        if (check_colision_rectangle(player, game->room->enemies[i]->hitbox)) {
+        if (check_colision_rectangle(player, game->room->enemies[i]->hitbox)
+        && game->room->enemies[i]->health > 0) {
             game->player->health--;
             sfClock_restart(game->player->health_time);
+            break;
         }
         time = sfTime_asSeconds(time_clock);
+    }
+}
+
+void check_colision_ball_enemies(game_t *game)
+{
+    sfRectangleShape *ball = game->ball->hitbox;
+    sfTime time_clock;
+    float time = 0;
+
+    if (!game->room->enemies)
+        return;
+    for (int i = 0; game->room->enemies[i]; i++) {
+        time_clock = sfClock_getElapsedTime(game->room->enemies[i]->clock);
+        time = sfTime_asSeconds(time_clock);
+        if (check_colision_rectangle(ball, game->room->enemies[i]->hitbox)
+        && time > 1) {
+            game->room->enemies[i]->health--;
+            sfClock_restart(game->room->enemies[i]->clock);
+        }
     }
 }
