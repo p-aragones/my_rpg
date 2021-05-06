@@ -38,6 +38,8 @@ enemy_t *create_enemy(void)
     size = (sfVector2u) {(enemy->elem->rect.width - enemy->elem->rect.left) *
     scale.x, (enemy->elem->rect.height - enemy->elem->rect.top) * scale.y};
     enemy->hitbox = create_rectangle(enemy->elem->pos, sfGreen, size);
+    enemy->health = 2;
+    enemy->clock = sfClock_create();
     return (enemy);
 }
 

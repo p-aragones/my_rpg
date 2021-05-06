@@ -34,6 +34,7 @@ typedef struct elem_s {
     sfTexture* texture;
     sfVector2f pos;
     sfIntRect rect;
+    sfRectangleShape *hitbox;
 } elem_t;
 
 typedef struct window_s {

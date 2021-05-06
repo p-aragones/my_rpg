@@ -42,5 +42,6 @@ int ball_moves(sfEvent event, game_t *game, int a)
     if (game->ball_dir == 4) {
         game->ball->pos.x += 30;
     }
+    sfRectangleShape_setPosition(game->ball->hitbox, game->ball->pos);
     return (0);
 }

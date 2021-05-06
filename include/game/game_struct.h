@@ -28,6 +28,7 @@ typedef struct enemy_s {
     int dmg;
     int speed;
     sfRectangleShape *hitbox;
+    sfClock *clock;
 } enemy_t;
 
 typedef struct player_s {
