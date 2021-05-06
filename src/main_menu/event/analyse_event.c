@@ -16,7 +16,7 @@ void change_texture(window_t *window, button_t **buttons)
     while (buttons[x]) {
         if (mouse_hover(window->window, buttons[x]->elem->pos) == 1 &&
         buttons[x]->status != CLICK) {
-            buttons[x]->hover_fonc(buttons[x]);
+            buttons[x]->hover_func(buttons[x]);
         }
         else if (buttons[x]->status == CLICK)
             sfSprite_setTexture(buttons[x]->elem->sprite,
@@ -52,7 +52,7 @@ button_t **buttons, menu_t *menu)
         while (buttons[x]) {
             if (event.type == sfEvtMouseButtonPressed &&
             mouse_hover(window->window, buttons[x]->elem->pos) == 1)
-                return (buttons[x]->click_fonc(window, menu, buttons[x]));
+                return (buttons[x]->click_func(window, menu, buttons[x]));
             x++;
         }
         manage_howto(event, window, menu);

@@ -30,8 +30,8 @@ typedef struct menu_s {
 } menu_t;
 
 typedef struct button_s {
-    void (*hover_fonc)(struct button_s *button);
-    int (*click_fonc)(window_t *, menu_t *, struct button_s *button);
+    void (*hover_func)(struct button_s *button);
+    int (*click_func)(window_t *, menu_t *, struct button_s *button);
     sfVector2i size;
     elem_t *elem;
     sfTexture *hover_texture;
