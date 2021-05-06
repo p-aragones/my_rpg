@@ -36,6 +36,7 @@ int generate_room(game_t *);
 // HITBOXES
 void check_colision_to_player(game_t *);
 bool check_colision_rectangle(sfRectangleShape *, sfRectangleShape *);
+void check_colision_ball_enemies(game_t *);
 
 // INIT
 player_t *init_player(void);

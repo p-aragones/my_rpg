@@ -13,6 +13,7 @@ void free_room(room_t *room)
 
     while (room->enemies[i]) {
         free_elem(room->enemies[i]->elem);
+        i++;
     }
     free(room->enemies);
     room->enemies = NULL;

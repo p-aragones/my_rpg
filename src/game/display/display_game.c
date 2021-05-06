@@ -31,20 +31,23 @@ void draw_enemies(enemy_t **enemies, sfRenderWindow *window, int hitbox)
 
     while (enemies[i]) {
         if (enemies[i]->health > 0) {
-            sfSprite_setPosition(enemies[i]->elem->sprite, enemies[i]->elem->pos);
+            sfSprite_setPosition(enemies[i]->elem->sprite,
+            enemies[i]->elem->pos);
             sfRenderWindow_drawSprite(window, enemies[i]->elem->sprite, NULL);
             if (hitbox > 0)
-                sfRenderWindow_drawRectangleShape(window, enemies[i]->hitbox, NULL);
+                sfRenderWindow_drawRectangleShape(window,
+                enemies[i]->hitbox, NULL);
         }
         i++;
     }
 }
 
-void draw_ball(elem_t *ball, sfRenderWindow *window)
+void draw_ball(elem_t *ball, sfRenderWindow *window, int hitbox)
 {
     sfSprite_setPosition(ball->sprite, ball->pos);
     sfRenderWindow_drawSprite(window, ball->sprite, NULL);
-    sfRenderWindow_drawRectangleShape(window, ball->hitbox, NULL);
+    if (hitbox > 0)
+        sfRenderWindow_drawRectangleShape(window, ball->hitbox, NULL);
 }
 
 void display_game(game_t *game, sfRenderWindow *window)
@@ -56,7 +59,7 @@ void display_game(game_t *game, sfRenderWindow *window)
         draw_npc(game->player, game->npc, window);
     if (game->room->enemies != NULL)
         draw_enemies(game->room->enemies, window, game->hud->hitboxes);
-    draw_ball(game->ball, window);
+    draw_ball(game->ball, window, game->hud->hitboxes);
     draw_hud(game->hud, game->player->health, window);
     check_colision_to_player(game);
     check_colision_ball_enemies(game);

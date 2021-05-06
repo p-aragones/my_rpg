@@ -62,7 +62,7 @@ int game_events(sfEvent event, game_t *game, window_t *window)
 {
     int a = 0;
 
-    if (game->room->n_enemies == 0)
+    if (game->room->n_enemies <= 0)
         game->room->locked = 0;
     if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
     game->room->locked == 0) {
