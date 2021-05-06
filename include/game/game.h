@@ -13,6 +13,7 @@
 #include "rpg.h"
 #include "game_struct.h"
 #include "macro_game.h"
+#include "pause.h"
 
 // PLAYER
 void move_player(player_t *, int, int);

@@ -10,13 +10,13 @@
 
 #define N_BUTTONS_PAUSE 6
 
-#define MENU "resources/sprites/buttons/pause_buttons/menu.png"
-#define MENU_HOVER "resources/sprites/buttons/pause_buttons/menu_hover.png"
-#define MENU_CLICK "resources/sprites/buttons/pause_buttons/menu_click.png"
+#define MENU "resources/buttons/pause_buttons/menu.png"
+#define MENU_HOVER "resources/buttons/pause_buttons/menu_hover.png"
+#define MENU_CLICK "resources/buttons/pause_buttons/menu_click.png"
 
-#define RESUME "resources/sprites/buttons/pause_buttons/resume.png"
-#define RESUME_HOVER "resources/sprites/buttons/pause_buttons/resume_hover.png"
-#define RESUME_CLICK "resources/sprites/buttons/pause_buttons/resume_click.png"
+#define RESUME "resources/buttons/pause_buttons/resume.png"
+#define RESUME_HOVER "resources/buttons/pause_buttons/resume_hover.png"
+#define RESUME_CLICK "resources/buttons/pause_buttons/resume_click.png"
 
 #define POS_MENU (sfVector2f){X_WINDOW / 2 - 70, Y_WINDOW / 2 - 35}
 #define POS_RESUME (sfVector2f){X_WINDOW / 2 - 70, Y_WINDOW / 2 - 120}

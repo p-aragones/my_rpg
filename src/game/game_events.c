@@ -71,7 +71,8 @@ int game_events(sfEvent event, game_t *game, window_t *window)
     }
     while (sfRenderWindow_pollEvent(window->window, &event)) {
         if (event.key.code == sfKeyEscape)
-            sfRenderWindow_close(window->window);
+            if (pause_menu(window))
+                return (0);
         if (event.type == sfEvtKeyReleased && event.key.code == sfKeyH)
             game->hud->hitboxes *= -1;
         a = check_moves(event, game);
