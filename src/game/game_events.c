@@ -70,9 +70,8 @@ int game_events(sfEvent event, game_t *game, window_t *window)
         dust_effect(window->window, game);
     }
     while (sfRenderWindow_pollEvent(window->window, &event)) {
-        if (event.key.code == sfKeyEscape)
-            if (pause_menu(window))
-                return (0);
+        if (event.key.code == sfKeyEscape && pause_menu(window) == 1)
+            return (1);
         if (event.type == sfEvtKeyReleased && event.key.code == sfKeyH)
             game->hud->hitboxes *= -1;
         a = check_moves(event, game);
