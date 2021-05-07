@@ -11,9 +11,11 @@ void free_room(room_t *room)
 {
     int i = 0;
 
-    while (room->enemies[i]) {
-        free_elem(room->enemies[i]->elem);
-        i++;
+    if (room->enemies) {
+        while (room->enemies[i]) {
+            free_elem(room->enemies[i]->elem);
+            i++;
+        }
     }
     free(room->enemies);
     room->enemies = NULL;

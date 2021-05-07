@@ -29,8 +29,7 @@ game_t *init_game(void)
     game->sounds = init_sounds();
     game->current_room = 0;
     game->max_room = 0;
-    if (!game->room || !game->player || !game->ball ||
-    !game->hud || !game->npc)
+    if (!game->room || !game->player || !game->ball || !game->hud || !game->npc)
         return (NULL);
     return (game);
 }
