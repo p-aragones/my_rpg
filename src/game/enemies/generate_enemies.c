@@ -63,15 +63,22 @@ game_t *no_boss(game_t *game)
 
 game_t *generate_boss(game_t *game)
 {
-    game->room->enemies = malloc(sizeof(enemy_t *) * (1 + 1));
+    sfVector2u size = (sfVector2u) {0, 0};
 
+    game->room->enemies = malloc(sizeof(enemy_t *) * (1 + 1));
     if (!game->room->enemies)
         return (NULL);
     game->room->n_enemies = 1;
     game->room->enemies[0] = create_enemy();
-    game->room->enemies[0]->health = 50;
+    game->room->enemies[0]->health = 5;
     game->room->enemies[1] = NULL;
     sfSprite_setScale(game->room->enemies[0]->elem->sprite, SCALE_BOSS);
+    size = (sfVector2u) {(game->room->enemies[0]->elem->rect.width -
+    game->room->enemies[0]->elem->rect.left) * SCALE_BOSS.x,
+    (game->room->enemies[0]->elem->rect.height -
+    game->room->enemies[0]->elem->rect.top) * SCALE_BOSS.y};
+    game->room->enemies[0]->hitbox = create_rectangle(
+    game->room->enemies[0]->elem->pos, sfBlue, size);
 }
 
 game_t *generate_enemies(game_t *game)
