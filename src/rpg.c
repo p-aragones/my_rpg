@@ -7,11 +7,19 @@
 
 #include "rpg.h"
 
-int rpg(void)
+int rpg(char **av)
 {
-    window_t *window = init_window();
+    window_t *window = init_window(av);
+    config_t *config = init_config(av);
 
-    if (!window)
+    if (!window || !config)
         return (84);
+    printf("file: %s\n", config->file);
+    printf("name: %s\n", config->name);
+    printf("lifes: %d\n", config->health);
+    printf("gender: %d\n", config->gender);
+    printf("level: %d\n", config->level);
+    printf("room: %d\n", config->room);
+    exit (0);
     return (main_menu(window));
 }

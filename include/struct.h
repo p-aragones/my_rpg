@@ -36,6 +36,15 @@ typedef struct elem_s {
     sfIntRect rect;
 } elem_t;
 
+typedef struct config_s {
+    char *file;
+    char *name;
+    int gender;
+    int health;
+    int level;
+    int room;
+} config_t;
+
 typedef struct window_s {
     sfRenderWindow *window;
     sfVideoMode videoMode;

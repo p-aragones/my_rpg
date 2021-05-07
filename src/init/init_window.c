@@ -17,7 +17,7 @@ sfMusic *init_music(void)
     return (music);
 }
 
-window_t *init_window(void)
+window_t *init_window(char **av)
 {
     window_t *window = malloc(sizeof(window_t));
 
