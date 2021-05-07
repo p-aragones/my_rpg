@@ -8,7 +8,7 @@
 #include "game.h"
 #include "tools.h"
 
-game_t *init_game(void)
+game_t *init_game(window_t *window)
 {
     game_t *game = malloc(sizeof(game_t));
     sfVector2u size = (sfVector2u) {0, 0};
@@ -16,7 +16,7 @@ game_t *init_game(void)
     if (!game)
         return (NULL);
     game->room = init_room();
-    game->player = init_player();
+    game->player = init_player(window);
     game->ball = create_elem(BALL_TEXTURE, POS_BALL, RECT_BALL);
     sfSprite_setScale(game->ball->sprite, SCALE_BALL);
     size = (sfVector2u) {(game->ball->rect.width - game->ball->rect.left) *

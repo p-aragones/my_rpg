@@ -44,10 +44,10 @@ bool check_colision_rectangle(sfRectangleShape *, sfRectangleShape *);
 void check_colision_ball_enemies(game_t *);
 
 // INIT
-player_t *init_player(void);
+player_t *init_player(window_t *);
 room_t *init_room(void);
 hud_t *init_hud(void);
-game_t *init_game(void);
+game_t *init_game(window_t *);
 npc_t *init_npc(void);
 sounds_t *init_sounds(void);
 
