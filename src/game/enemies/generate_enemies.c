@@ -69,7 +69,7 @@ game_t *generate_boss(game_t *game)
         return (NULL);
     game->room->n_enemies = 1;
     game->room->enemies[0] = create_enemy();
-    game->room->enemies[0]->health = 50;
+    game->room->enemies[0]->health = 15;
     game->room->enemies[1] = NULL;
     sfSprite_setScale(game->room->enemies[0]->elem->sprite, SCALE_BOSS);
 }

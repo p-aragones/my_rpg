@@ -58,17 +58,23 @@ int cross_door(sfVector2f player, sfVector2f door)
     return (0);
 }
 
+void exit_room(game_t *game, window_t *window)
+{
+    if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
+    game->room->locked == 0 && game->current_room == game->max_room)
+        generate_room(game, window->window);
+    if (back_door(game, game->player->elem->pos,
+    game->room->backdoor->pos) == 1)
+        go_back(game);
+}
+
 int game_events(sfEvent event, game_t *game, window_t *window)
 {
     int a = 0;
 
-    if (game->room->n_enemies <= 0)
-        game->room->locked = 0;
-    if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
-    game->room->locked == 0) {
-        generate_room(game);
-        dust_effect(window->window, game);
-    }
+    if (game->room->n_enemies <= 0 && game->room->locked == 1)
+        room_cleared(game);
+    exit_room(game, window);
     while (sfRenderWindow_pollEvent(window->window, &event)) {
         if (event.key.code == sfKeyEscape && pause_menu(window) == 1)
             return (1);

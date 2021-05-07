@@ -19,8 +19,10 @@ void free_room(room_t *room)
     room->enemies = NULL;
 }
 
-int generate_room(game_t *game)
+int generate_room(game_t *game, sfRenderWindow *window)
 {
+    game->current_room++;
+    game->max_room++;
     sfSound_play(game->sounds->door);
     game->hud->room->num += 1;
     if (game->room->enemies)
@@ -32,4 +34,9 @@ int generate_room(game_t *game)
     if (game->room->backdoor->pos.x != 20)
         game->room->backdoor->pos.x = 20;
     game->room->locked = 1;
+    if (game->room->heart) {
+        game->room->heart->pos = START_OBJ;
+        game->room->h_dropped = 0;
+    }
+    dust_effect(window, game);
 }

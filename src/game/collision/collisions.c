@@ -55,9 +55,9 @@ void check_colision_ball_enemies(game_t *game)
         if (check_colision_rectangle(ball, game->room->enemies[i]->hitbox)
         && time > 1) {
             game->room->enemies[i]->health -= game->player->dmg;
+            if (game->room->enemies[i]->health <= 0)
+                game->room->n_enemies--;
             sfClock_restart(game->room->enemies[i]->clock);
         }
-        if (game->room->enemies[i]->health <= 0)
-            game->room->n_enemies--;
     }
 }

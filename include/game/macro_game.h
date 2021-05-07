@@ -64,6 +64,7 @@
 // HUD
 #define HEART_TEXTURE "resources/hud/heart.png"
 #define POS_HEART (sfVector2f){0, 0}
+#define POS_HEART_DROPPPED (sfVector2f){1920 / 2 - 15, 1080 / 2 - 15}
 #define RECT_HEART (sfIntRect){0, 0, 720, 720}
 #define SCALE_HEART (sfVector2f){0.05, 0.05}
 
@@ -107,7 +108,6 @@
 #define SPIKE_STATS 10, 1
 
 // INVENTORY
-
 #define NUM_OBJ 5
 
 #define START_OBJ (sfVector2f){-1000, -1000}

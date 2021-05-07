@@ -54,6 +54,8 @@ void display_game(game_t *game, sfRenderWindow *window)
 {
     sfRenderWindow_clear(window, sfBlack);
     draw_room(game->room, window);
+    if (game->room->h_dropped == 1)
+        sfRenderWindow_drawSprite(window, game->room->heart->sprite, NULL);
     draw_player(game->player, window, game->hud->hitboxes);
     if (game->hud->room->num == 0)
         draw_npc(game->player, game->npc, window);

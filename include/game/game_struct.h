@@ -46,6 +46,7 @@ typedef struct room_s {
     elem_t *heart;
     elem_t *backdoor;
     enemy_t **enemies;
+    int h_dropped;
     int n_enemies;
     int locked;
 } room_t;
@@ -78,6 +79,8 @@ typedef struct game_s {
     hud_t *hud;
     sounds_t *sounds;
     int ball_dir;
+    int current_room;
+    int max_room;
 } game_t;
 
 #endif /* !GAME_STRUCT_H_ */

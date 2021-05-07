@@ -19,9 +19,11 @@ room_t *init_room(void)
     room->elem = create_elem(ROOM_BG, POS_BG, RECT_BG);
     room->door = create_elem(DOOR_TEXTURE, POS_DOOR, RECT_DOOR);
     room->backdoor = create_elem(DOOR_TEXTURE, POS_BDOOR, RECT_DOOR);
-    room->heart = NULL;
-    if (!room->elem || !room->door || !room->backdoor)
+    room->heart = create_elem(HEART_TEXTURE, START_OBJ, RECT_HEART);
+    room->h_dropped = 0;
+    if (!room->elem || !room->door || !room->backdoor || !room->heart)
         return (NULL);
+    sfSprite_setScale(room->heart->sprite, SCALE_HEART);
     sfSprite_setScale(room->door->sprite, SCALE_DOOR);
     sfSprite_setScale(room->backdoor->sprite, SCALE_DOOR);
     sfSprite_setRotation(room->door->sprite, 90);

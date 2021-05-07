@@ -31,7 +31,11 @@ sfVector2f random_pos(void);
 void follow_player(player_t *, enemy_t **);
 
 // ROOM
-int generate_room(game_t *);
+void free_room(room_t *);
+void room_cleared(game_t *);
+int back_door(game_t *, sfVector2f, sfVector2f);
+void go_back(game_t *);
+int generate_room(game_t *, sfRenderWindow *);
 
 // HITBOXES
 void check_colision_to_player(game_t *);
