@@ -27,8 +27,7 @@ game_t *init_game(void)
     game->hud = init_hud();
     game->npc = init_npc();
     game->sounds = init_sounds();
-    if (!game->room || !game->player || !game->ball ||
-    !game->hud || !game->npc)
+    if (!game->room || !game->player || !game->ball || !game->hud || !game->npc)
         return (NULL);
     return (game);
 }
