@@ -23,6 +23,10 @@ player_t *init_player(void)
     player->dmg = 1;
     player->speed = 20;
     player->health = 3;
+    player->down = 0;
+    player->up = 0;
+    player->left = 0;
+    player->right = 0;
     size = (sfVector2u) {70, 100};
     pos_hit.x = player->elem->pos.x + 30;
     pos_hit.y = player->elem->pos.y + 30;

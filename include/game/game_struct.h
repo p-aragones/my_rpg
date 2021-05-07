@@ -36,6 +36,10 @@ typedef struct player_s {
     int health;
     float dmg;
     float speed;
+    int right;
+    int left;
+    int down;
+    int up;
     sfRectangleShape *hitbox;
     sfClock *health_time;
 } player_t;
