@@ -50,6 +50,7 @@ typedef struct window_s {
     sfVideoMode videoMode;
     fps_t *fps;
     sfMusic *music;
+    config_t *config;
 } window_t;
 
 #endif

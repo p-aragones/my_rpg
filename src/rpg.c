@@ -10,9 +10,8 @@
 int rpg(char **av)
 {
     window_t *window = init_window(av);
-    config_t *config = init_config(av);
 
-    if (!window || !config)
+    if (!window)
         return (84);
     return (main_menu(window));
 }

@@ -31,7 +31,8 @@ window_t *init_window(char **av)
     sfRenderWindow_setFramerateLimit(window->window, 60);
     window->fps = init_fps();
     window->music = init_music();
-    if (!window->window || !window->fps || !window->music)
+    window->config = init_config(av);
+    if (!window->window || !window->fps || !window->music || !window->config)
         return (NULL);
     return (window);
 }
