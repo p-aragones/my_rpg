@@ -9,15 +9,30 @@
 
 void movers(sfEvent event, game_t *game)
 {
-    if (game->player->up == 0 && event.key.code == sfKeyUp)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp)
         game->player->up = 1;
-    if (game->player->down == 0 && event.key.code == sfKeyDown)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown)
         game->player->down = 1;
-    if (game->player->left == 0 && event.key.code == sfKeyLeft)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyLeft)
         game->player->left = 1;
-    if (game->player->right == 0 && event.key.code == sfKeyRight)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyRight)
         game->player->right = 1;
-    move_player(game->player, RIGHT);
+    if (event.key.code == sfKeyUp && event.type == sfEvtKeyReleased)
+        game->player->up = 0;
+    if (event.key.code == sfKeyDown && event.type == sfEvtKeyReleased)
+        game->player->down = 0;
+    if (event.key.code == sfKeyLeft && event.type == sfEvtKeyReleased)
+        game->player->left = 0;
+    if (event.key.code == sfKeyRight && event.type == sfEvtKeyReleased)
+        game->player->right = 0;
+    if (game->player->up == 1)
+        move_player(game->player, UP);
+    if (game->player->down == 1)
+        move_player(game->player, DOWN);
+    if (game->player->left == 1)
+        move_player(game->player, LEFT);
+    if (game->player->right == 1)
+        move_player(game->player, RIGHT);
 }
 
 int check_moves(sfEvent event, game_t *game)
