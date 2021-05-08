@@ -23,6 +23,8 @@ void go_back(game_t *game)
     game->current_room--;
     game->player->elem->pos.x = 1700;
     game->room->heart->pos.x = -100;
+    game->item_dropped = 0;
+    reset_item_pos(game->items);
     sfSprite_setPosition(game->room->heart->sprite, game->room->heart->pos);
     if (game->current_room == 0)
         game->room->backdoor->pos.x = -200;

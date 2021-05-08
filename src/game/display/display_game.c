@@ -61,13 +61,13 @@ void display_game(game_t *game, sfRenderWindow *window)
     if (game->room->h_dropped == 1)
         sfRenderWindow_drawSprite(window, game->room->heart->sprite, NULL);
     draw_player(game->player, window, game->hud->hitboxes);
-    if (game->current_room == 0)
-        draw_npc(game->player, game->npc, window);
+    if (game->current_room == 0 ||
+    (game->current_room % 5 == 0 && game->room->n_enemies <= 0))
+        draw_npc(game->player, game->npc, window, game);
     if (game->room->enemies != NULL)
         draw_enemies(game->room->enemies, window, game->hud->hitboxes);
     draw_ball(game->ball, window, game->hud->hitboxes);
     draw_hud(game->hud, game->player->health, window);
-    check_colision_to_player(game);
-    check_colision_ball_enemies(game);
+    draw_items(game->items, window);
     sfRenderWindow_display(window);
 }

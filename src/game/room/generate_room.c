@@ -21,10 +21,22 @@ void free_room(room_t *room)
     room->enemies = NULL;
 }
 
+void reset_item_pos(elem_t **items)
+{
+    int i = 0;
+
+    while (items[i]) {
+        sfSprite_setPosition(items[i]->sprite, POS_BALL);
+        i++;
+    }
+}
+
 int generate_room(game_t *game, sfRenderWindow *window)
 {
     game->current_room++;
     game->max_room++;
+    game->item_dropped = 0;
+    reset_item_pos(game->items);
     sfSound_play(game->sounds->door);
     game->hud->room->num += 1;
     if (game->room->enemies)

@@ -42,6 +42,8 @@ game_t *init_game(window_t *window)
     game->hud = init_hud();
     game->npc = init_npc();
     game->sounds = init_sounds();
+    game->items = init_items();
+    game->item_dropped = 0;
     init_ball(game);
     load_config(game, window);
     if (!game->room || !game->player || !game->ball || !game->hud || !game->npc)

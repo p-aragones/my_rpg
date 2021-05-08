@@ -76,7 +76,7 @@ int game_events(sfEvent event, game_t *game, window_t *window)
     int a = 0;
 
     if (game->room->n_enemies <= 0 && game->room->locked == 1)
-        room_cleared(game);
+        room_cleared(game, window->window);
     exit_room(game, window);
     while (sfRenderWindow_pollEvent(window->window, &event)) {
         if (event.key.code == sfKeyEscape && pause_menu(window) == 1)
@@ -88,5 +88,5 @@ int game_events(sfEvent event, game_t *game, window_t *window)
     if (game->hud->room->num != 0)
         ball_moves(event, game, a);
     if (game->room->enemies)
-        follow_player(game->player, game->room->enemies);
+        follow_player(game->player, game->room->enemies, game);
 }

@@ -28,11 +28,11 @@ enemy_t *create_head(int , int);
 enemy_t *create_spike(int , int);
 sfRectangleShape *create_rectangle(sfVector2f, sfColor, sfVector2u);
 sfVector2f random_pos(void);
-void follow_player(player_t *, enemy_t **);
+void follow_player(player_t *, enemy_t **, game_t *);
 
 // ROOM
 void free_room(room_t *);
-void room_cleared(game_t *);
+void room_cleared(game_t *, sfRenderWindow *);
 void empty_room(game_t *);
 int back_door(game_t *, sfVector2f, sfVector2f);
 void go_back(game_t *);
@@ -49,11 +49,14 @@ room_t *init_room(void);
 hud_t *init_hud(void);
 game_t *init_game(window_t *);
 npc_t *init_npc(void);
+elem_t **init_items(void);
 sounds_t *init_sounds(void);
 
 // DISPLAY
+void reset_item_pos(elem_t **);
+void draw_items(elem_t **, sfRenderWindow *);
 void draw_hud(hud_t *, int , sfRenderWindow *);
-void draw_npc(player_t *, npc_t *, sfRenderWindow *);
+void draw_npc(player_t *, npc_t *, sfRenderWindow *, game_t *);
 void display_game(game_t *, sfRenderWindow *);
 
 int game_events(sfEvent, game_t *, window_t *);
