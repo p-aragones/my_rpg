@@ -58,11 +58,9 @@ int game(window_t *window)
     dezoom(window->window, game->room->elem->sprite);
     while (!in_game && sfRenderWindow_isOpen(window->window)) {
         i = moving_player(i, game);
-        game->hud->room->num = game->current_room;
         if (sfClock_getElapsedTime(clock->clock).microseconds > TIME_LIMIT) {
-            in_game = game_events(event, game, window);
-            if (in_game)
-                return (in_game);
+            if (game_events(event, game, window))
+                return (1);
             display_game(game, window->window);
             sfClock_restart(clock->clock);
         }

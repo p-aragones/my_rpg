@@ -59,6 +59,7 @@ int game_events(sfEvent event, game_t *game, window_t *window)
 {
     int a = 0;
 
+    game->hud->room->num = game->current_room;
     if (game->room->n_enemies <= 0 && game->room->locked == 1)
         room_cleared(game, window->window);
     exit_room(game, window);
@@ -73,4 +74,5 @@ int game_events(sfEvent event, game_t *game, window_t *window)
         ball_moves(event, game, a);
     if (game->room->enemies)
         follow_player(game->player, game->room->enemies, game);
+    return (0);
 }
