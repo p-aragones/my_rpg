@@ -7,24 +7,17 @@
 
 #include "game.h"
 
-int movers(sfEvent event, game_t *game)
+void movers(sfEvent event, game_t *game)
 {
-    if (event.key.code == sfKeyDown) {
-        move_player(game->player, DOWN);
-        game->player->elem->rect.top = 640;
-        return (0);
-    }
-    if (event.key.code == sfKeyLeft) {
-        move_player(game->player, LEFT);
-        game->player->elem->rect.top = 576;
-        return (0);
-    }
-    if (event.key.code == sfKeyRight) {
-        move_player(game->player, RIGHT);
-        game->player->elem->rect.top = 704;
-        return (0);
-    }
-    return (1);
+    if (game->player->up == 0 && event.key.code == sfKeyUp)
+        game->player->up = 1;
+    if (game->player->down == 0 && event.key.code == sfKeyDown)
+        game->player->down = 1;
+    if (game->player->left == 0 && event.key.code == sfKeyLeft)
+        game->player->left = 1;
+    if (game->player->right == 0 && event.key.code == sfKeyRight)
+        game->player->right = 1;
+    move_player(game->player, RIGHT);
 }
 
 int check_moves(sfEvent event, game_t *game)
@@ -32,13 +25,7 @@ int check_moves(sfEvent event, game_t *game)
     game->player->elem->rect.left += 64;
     if (game->player->elem->rect.left == 576)
         game->player->elem->rect.left = 0;
-    if (event.key.code == sfKeyUp) {
-        move_player(game->player, UP);
-        game->player->elem->rect.top = 512;
-        return (0);
-    }
-    if (movers(event, game) == 1)
-        game->player->elem->rect.left = 0;
+    movers(event, game);
     if (event.key.code == sfKeyA)
         return (1);
     if (event.key.code == sfKeyW)
