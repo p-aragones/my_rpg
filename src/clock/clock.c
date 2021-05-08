@@ -20,6 +20,6 @@ clock_struct_t *init_clock(void)
 clock_struct_t *refresh_clock(clock_struct_t *clock)
 {
     clock->time = sfClock_getElapsedTime(clock->clock);
-    clock->seconds = clock->time.microseconds / 5000;
+    clock->seconds = clock->time.microseconds / 15000;
     return (clock);
 }

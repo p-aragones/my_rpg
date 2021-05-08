@@ -7,6 +7,16 @@
 
 #include "game.h"
 
+void set_room_scale(room_t *room)
+{
+    sfSprite_setScale(room->heart->sprite, SCALE_HEART);
+    sfSprite_setScale(room->door->sprite, SCALE_DOOR);
+    sfSprite_setScale(room->backdoor->sprite, SCALE_DOOR);
+    sfSprite_setRotation(room->door->sprite, 90);
+    sfSprite_setRotation(room->backdoor->sprite, 270);
+    sfSprite_setScale(room->elem->sprite, SCALE_BG_START);
+}
+
 room_t *init_room(void)
 {
     room_t *room = malloc(sizeof(room_t));
@@ -23,11 +33,6 @@ room_t *init_room(void)
     room->h_dropped = 0;
     if (!room->elem || !room->door || !room->backdoor || !room->heart)
         return (NULL);
-    sfSprite_setScale(room->heart->sprite, SCALE_HEART);
-    sfSprite_setScale(room->door->sprite, SCALE_DOOR);
-    sfSprite_setScale(room->backdoor->sprite, SCALE_DOOR);
-    sfSprite_setRotation(room->door->sprite, 90);
-    sfSprite_setRotation(room->backdoor->sprite, 270);
-    sfSprite_setScale(room->elem->sprite, SCALE_BG_START);
+    set_room_scale(room);
     return (room);
 }
