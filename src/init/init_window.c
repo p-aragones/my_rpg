@@ -17,7 +17,7 @@ sfMusic *init_music(void)
     return (music);
 }
 
-window_t *init_window(void)
+window_t *init_window(char **av)
 {
     window_t *window = malloc(sizeof(window_t));
 
@@ -31,7 +31,8 @@ window_t *init_window(void)
     sfRenderWindow_setFramerateLimit(window->window, 60);
     window->fps = init_fps();
     window->music = init_music();
-    if (!window->window || !window->fps || !window->music)
+    window->config = init_config(av);
+    if (!window->window || !window->fps || !window->music || !window->config)
         return (NULL);
     return (window);
 }

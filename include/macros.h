@@ -13,4 +13,8 @@
 
 #define FONT "resources/hud/game_over.ttf"
 
+#define CONFIG "saves/config.txt"
+#define ERR_CONF "There is an error with the config file...\n"
+#define BOY "boy"
+
 #endif /* !MACROS_H_ */

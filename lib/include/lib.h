@@ -36,7 +36,9 @@ int my_str_isnum(char const *str);
 int my_str_isalpha(char const *str);
 int my_str_isalphanum(char *str);
 
-char **split(char *str, char c, char d);
+char **split(char *str, char *);
+bool chars_in_str(char *str, char *c);
+bool char_in_str(char *str, char c);
 
 int get_size_file(char *path);
 char *read_file(char *path);

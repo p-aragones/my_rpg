@@ -11,7 +11,7 @@
 int game(window_t *window)
 {
     sfEvent event;
-    game_t *game = init_game();
+    game_t *game = init_game(window);
     int in_game = 0;
 
     if (!game)

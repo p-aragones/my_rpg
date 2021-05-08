@@ -7,7 +7,8 @@
 
 #include "rpg.h"
 
-int main(void)
+int main(int ac, char **av)
 {
-    return (rpg());
+    (void)ac;
+    return (rpg(av));
 }

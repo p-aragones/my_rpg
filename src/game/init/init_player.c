@@ -7,7 +7,7 @@
 
 #include "game.h"
 
-player_t *init_player(void)
+player_t *init_player(window_t *window)
 {
     player_t *player = malloc(sizeof(player_t));
     sfVector2u size = (sfVector2u) {0, 0};
@@ -16,7 +16,10 @@ player_t *init_player(void)
 
     if (!player)
         return (NULL);
-    player->elem = create_elem(PLAYER_TEXTURE, POS_PLAYER, RECT_PLAYER);
+    if (window->config->gender == 1)
+        player->elem = create_elem(PLAYER_TEXTURE, POS_PLAYER, RECT_PLAYER);
+    else
+        player->elem = create_elem(GIRL_TEXTURE, POS_PLAYER, RECT_PLAYER);
     sfSprite_setScale(player->elem->sprite, SCALE_PLAYER);
     if (!player->elem)
         return (NULL);
