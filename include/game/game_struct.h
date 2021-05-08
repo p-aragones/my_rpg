@@ -66,6 +66,7 @@ typedef struct npc_s {
     elem_t *elem;
     elem_t *ball;
     sfText *text;
+    sfText *text_item;
     int dropped;
 } npc_t;
 
@@ -82,6 +83,8 @@ typedef struct game_s {
     elem_t *ball;
     hud_t *hud;
     sounds_t *sounds;
+    elem_t **items;
+    int item_dropped;
     int ball_dir;
     int current_room;
     int max_room;

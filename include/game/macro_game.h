@@ -112,6 +112,7 @@
 
 #define START_OBJ (sfVector2f){-1000, -1000}
 #define OBJ_RECT (sfIntRect){0, 0, 32, 32}
+#define SCALE_OBJ (sfVector2f){2, 2}
 
 #define INV_TEXTURE "resources/items/inventory.png"
 #define INV_POS (sfVector2f){1520, 980}

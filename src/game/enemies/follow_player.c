@@ -7,10 +7,12 @@
 
 #include "game.h"
 
-void follow_player(player_t *player, enemy_t **enemies)
+void follow_player(player_t *player, enemy_t **enemies, game_t *game)
 {
     int i = 0;
 
+    check_colision_to_player(game);
+    check_colision_ball_enemies(game);
     while (enemies[i]) {
         if (enemies[i]->elem->pos.x - 32 < player->elem->pos.x)
             enemies[i]->elem->pos.x += enemies[i]->speed;

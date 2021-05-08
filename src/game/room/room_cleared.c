@@ -7,7 +7,7 @@
 
 #include "game.h"
 
-void room_cleared(game_t *game)
+void room_cleared(game_t *game, sfRenderWindow *window)
 {
     game->room->locked = 0;
     if (game->hud->room->num != 0 && game->hud->room->num % 2 == 0){
