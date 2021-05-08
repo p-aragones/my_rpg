@@ -17,13 +17,13 @@ void movers(sfEvent event, game_t *game)
         game->player->left = 1;
     if (event.type == sfEvtKeyPressed && event.key.code == sfKeyRight)
         game->player->right = 1;
-    if (event.key.code == sfKeyUp && event.type == sfEvtKeyReleased)
+    if (event.type == sfEvtKeyReleased && event.key.code == sfKeyUp)
         game->player->up = 0;
-    if (event.key.code == sfKeyDown && event.type == sfEvtKeyReleased)
+    if (event.type == sfEvtKeyReleased && event.key.code == sfKeyDown)
         game->player->down = 0;
-    if (event.key.code == sfKeyLeft && event.type == sfEvtKeyReleased)
+    if (event.type == sfEvtKeyReleased && event.key.code == sfKeyLeft)
         game->player->left = 0;
-    if (event.key.code == sfKeyRight && event.type == sfEvtKeyReleased)
+    if (event.type == sfEvtKeyReleased && event.key.code == sfKeyRight)
         game->player->right = 0;
     if (game->player->up == 1)
         move_player(game->player, UP);
