@@ -7,12 +7,29 @@
 
 #include "game.h"
 
+void init_player_hitbox(player_t *player)
+{
+    sfVector2u size = (sfVector2u) {0, 0};
+    sfVector2f pos_hit = (sfVector2f) {0, 0};
+
+    size = (sfVector2u) {70, 100};
+    pos_hit.x = player->elem->pos.x + 30;
+    pos_hit.y = player->elem->pos.y + 30;
+    player->hitbox = create_rectangle(pos_hit, sfGreen, size);
+}
+
+void init_player_health(player_t *player, window_t *window)
+{
+    if (window->config->health > 0 && window->config->health < 11)
+        player->health = window->config->health;
+    else
+        player->health = 3;
+}
+
 player_t *init_player(window_t *window)
 {
     player_t *player = malloc(sizeof(player_t));
-    sfVector2u size = (sfVector2u) {0, 0};
     sfVector2f scale = SCALE_PLAYER;
-    sfVector2f pos_hit = (sfVector2f) {0, 0};
 
     if (!player)
         return (NULL);
@@ -25,11 +42,8 @@ player_t *init_player(window_t *window)
         return (NULL);
     player->dmg = 1;
     player->speed = 20;
-    player->health = 3;
-    size = (sfVector2u) {70, 100};
-    pos_hit.x = player->elem->pos.x + 30;
-    pos_hit.y = player->elem->pos.y + 30;
-    player->hitbox = create_rectangle(pos_hit, sfGreen, size);
+    init_player_health(player, window);
+    init_player_hitbox(player);
     player->health_time = sfClock_create();
     return (player);
 }

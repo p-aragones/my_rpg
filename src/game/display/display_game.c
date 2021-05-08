@@ -52,12 +52,16 @@ void draw_ball(elem_t *ball, sfRenderWindow *window, int hitbox)
 
 void display_game(game_t *game, sfRenderWindow *window)
 {
+    if (game->current_room != 0)
+        game->room->backdoor->pos.x = 20;
+    else
+        game->room->backdoor->pos.x = -100;
     sfRenderWindow_clear(window, sfBlack);
     draw_room(game->room, window);
     if (game->room->h_dropped == 1)
         sfRenderWindow_drawSprite(window, game->room->heart->sprite, NULL);
     draw_player(game->player, window, game->hud->hitboxes);
-    if (game->hud->room->num == 0)
+    if (game->current_room == 0)
         draw_npc(game->player, game->npc, window);
     if (game->room->enemies != NULL)
         draw_enemies(game->room->enemies, window, game->hud->hitboxes);

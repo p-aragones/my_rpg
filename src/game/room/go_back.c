@@ -19,6 +19,7 @@ int back_door(game_t *game, sfVector2f player, sfVector2f door)
 void go_back(game_t *game)
 {
     free_room(game->room);
+    sfSound_play(game->sounds->door);
     game->current_room--;
     game->player->elem->pos.x = 1700;
     game->room->heart->pos.x = -100;

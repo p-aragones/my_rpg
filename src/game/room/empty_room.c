@@ -10,6 +10,7 @@
 void empty_room(game_t *game)
 {
     free_room(game->room);
+    sfSound_play(game->sounds->door);
     game->current_room++;
     game->player->elem->pos.x = 60;
     game->room->heart->pos.x = -100;
