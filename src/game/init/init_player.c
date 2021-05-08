@@ -45,7 +45,7 @@ player_t *init_player(window_t *window)
     if (!player->elem)
         return (NULL);
     player->dmg = 1;
-    player->speed = 20;
+    player->speed = 1;
     init_player_health(player, window);
     init_player_hitbox(player);
     player->health_time = sfClock_create();

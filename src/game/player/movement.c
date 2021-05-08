@@ -16,14 +16,6 @@ void movers_two(sfEvent event, game_t *game) {
         game->player->left = 0;
     if (event.type == sfEvtKeyReleased && event.key.code == sfKeyRight)
         game->player->right = 0;
-    if (game->player->up == 1)
-        move_player(game->player, UP);
-    if (game->player->down == 1)
-        move_player(game->player, DOWN);
-    if (game->player->left == 1)
-        move_player(game->player, LEFT);
-    if (game->player->right == 1)
-        move_player(game->player, RIGHT);
 }
 
 void move_player(player_t *player, int x, int y)
