@@ -63,6 +63,7 @@ int game_events(sfEvent, game_t *, window_t *);
 
 void dust_effect(sfRenderWindow *window, game_t *game);
 void frozen(sfRenderWindow *window, int);
+void movers_two(sfEvent event, game_t *game);
 
 // PIXEL
 void my_put_pixel(framebuffer_t *frbuff,
