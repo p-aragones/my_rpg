@@ -9,14 +9,22 @@
 
 void movers(sfEvent event, game_t *game)
 {
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp)
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp) {
         game->player->up = 1;
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown)
+        game->player->elem->rect.top = 512;
+    }
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown) {
         game->player->down = 1;
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyLeft)
+        game->player->elem->rect.top = 640;
+    }
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyLeft) {
         game->player->left = 1;
-    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyRight)
+        game->player->elem->rect.top = 576;
+    }
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyRight) {
         game->player->right = 1;
+        game->player->elem->rect.top = 704;
+    }
     if (event.type == sfEvtKeyReleased && event.key.code == sfKeyUp)
         game->player->up = 0;
     if (event.type == sfEvtKeyReleased && event.key.code == sfKeyDown)
