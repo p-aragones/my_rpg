@@ -18,7 +18,8 @@ void draw_npc(player_t *p, npc_t *npc, sfRenderWindow *window, game_t *game)
         npc->dropped = 1;
         sfRenderWindow_drawText(window, npc->text, NULL);
     }
-    if (p->elem->pos.y < npc->elem->pos.y + 100 && room % 5 == 0) {
+    if (p->elem->pos.y < npc->elem->pos.y + 100 && room % 5 == 0 &&
+    room != 0) {
         sfRenderWindow_drawText(window, game->npc->text_item, NULL);
         if (game->item_dropped == 0) {
             sfSprite_setPosition(game->items[random_item]->sprite,
