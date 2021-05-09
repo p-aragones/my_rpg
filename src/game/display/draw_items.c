@@ -7,13 +7,14 @@
 
 #include "game.h"
 
-void draw_items(elem_t **items, sfRenderWindow *window)
+void draw_items(elem_t **items, sfRenderWindow *window, int hitboxes)
 {
     int i = 0;
 
     while (items[i]) {
         sfRenderWindow_drawSprite(window, items[i]->sprite, NULL);
-        sfRenderWindow_drawRectangleShape(window, items[i]->hitbox, NULL);
+        if (hitboxes > 0)
+            sfRenderWindow_drawRectangleShape(window, items[i]->hitbox, NULL);
         i++;
     }
 }

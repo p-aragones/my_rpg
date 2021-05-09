@@ -56,7 +56,7 @@ sounds_t *init_sounds(void);
 
 // DISPLAY
 void reset_item_pos(elem_t **);
-void draw_items(elem_t **, sfRenderWindow *);
+void draw_items(elem_t **, sfRenderWindow *, int);
 void draw_hud(hud_t *, int , sfRenderWindow *, game_t *);
 void draw_npc(player_t *, npc_t *, sfRenderWindow *, game_t *);
 void display_game(game_t *, sfRenderWindow *);
