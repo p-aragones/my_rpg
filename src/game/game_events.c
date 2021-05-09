@@ -74,5 +74,6 @@ int game_events(sfEvent event, game_t *game, window_t *window)
         ball_moves(event, game, a);
     if (game->room->enemies)
         follow_player(game->player, game->room->enemies, game);
+    check_colision_player_npc(game);
     return (0);
 }
