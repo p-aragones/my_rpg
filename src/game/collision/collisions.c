@@ -81,11 +81,6 @@ void check_colision_ball_enemies(game_t *game)
     }
 }
 
-int get_x_pos(int i)
-{
-    return (1528 + (i * 80));
-}
-
 void check_colision_player_npc(game_t *game)
 {
     sfRectangleShape *player = game->player->hitbox;
