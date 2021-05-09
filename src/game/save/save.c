@@ -17,6 +17,7 @@ void write_life(game_t *game, int fd)
     tmp = my_itoa(game->player->health);
     write(fd, tmp, my_strlen(tmp));
     free(tmp);
+    write(fd, "\n", 1);
 }
 
 void write_level(game_t *game, int fd)
@@ -27,6 +28,7 @@ void write_level(game_t *game, int fd)
     tmp = my_itoa(game->max_room);
     write(fd, tmp, my_strlen(tmp));
     free(tmp);
+    write(fd, "\n", 1);
 }
 
 void write_room(game_t *game, int fd)
@@ -37,6 +39,7 @@ void write_room(game_t *game, int fd)
     tmp = my_itoa(game->current_room);
     write(fd, tmp, my_strlen(tmp));
     free(tmp);
+    write(fd, "\n", 1);
 }
 
 void write_gender(window_t *window, int fd)
@@ -46,6 +49,7 @@ void write_gender(window_t *window, int fd)
         write(fd, BOY, my_strlen(BOY));
     else
         write(fd, GIRL, my_strlen(GIRL));
+    write(fd, "\n", 1);
 }
 
 int save_info(game_t *game, window_t *window)
@@ -56,6 +60,7 @@ int save_info(game_t *game, window_t *window)
         return (84);
     write(fd, NAME, my_strlen(NAME));
     write(fd, window->config->name, my_strlen(window->config->name));
+    write(fd, "\n", 1);
     write_gender(window, fd);
     write_life(game, fd);
     write_level(game, fd);
