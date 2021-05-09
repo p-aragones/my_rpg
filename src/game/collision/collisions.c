@@ -51,7 +51,7 @@ void draw_particles(game_t *game, int i)
     my_draw_square(game->framebuffer, (sfVector2u) {pos.x, pos.y}, 10,
     sfRed);
     my_draw_square(game->framebuffer, (sfVector2u) {pos.x + size.x, pos.y},
-    10,sfRed);
+    10, sfRed);
     my_draw_square(game->framebuffer, (sfVector2u) {pos.x + size.x, pos.y +
     size.y}, 10, sfRed);
     my_draw_square(game->framebuffer, (sfVector2u) {pos.x, pos.y + size.y},
