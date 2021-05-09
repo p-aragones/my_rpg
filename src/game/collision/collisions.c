@@ -48,10 +48,9 @@ void draw_particles(game_t *game, int i)
     sfVector2f size = sfRectangleShape_getSize(
     game->room->enemies[i]->hitbox);
 
-    my_draw_square(game->framebuffer, (sfVector2u) {pos.x, pos.y}, 10,
+    my_draw_square(game->framebuffer, (sfVector2u) {pos.x, pos.y}, 10, sfRed);
+    my_draw_square(game->framebuffer, (sfVector2u) {pos.x + size.x, pos.y}, 10,
     sfRed);
-    my_draw_square(game->framebuffer, (sfVector2u) {pos.x + size.x, pos.y},
-    10, sfRed);
     my_draw_square(game->framebuffer, (sfVector2u) {pos.x + size.x, pos.y +
     size.y}, 10, sfRed);
     my_draw_square(game->framebuffer, (sfVector2u) {pos.x, pos.y + size.y},
@@ -75,10 +74,16 @@ void check_colision_ball_enemies(game_t *game)
         && time > 1 && game->room->enemies[i]->health > 0) {
             game->room->enemies[i]->health -= game->player->dmg;
             draw_particles(game, i);
-            monster_dead(game, i);
+            if (game->room->enemies[i]->health <= 0)
+                game->room->n_enemies--;
             sfClock_restart(game->room->enemies[i]->clock);
         }
     }
+}
+
+int get_x_pos(int i)
+{
+    return (1528 + (i * 80));
 }
 
 void check_colision_player_npc(game_t *game)
@@ -91,8 +96,8 @@ void check_colision_player_npc(game_t *game)
         if (check_colision_rectangle(player, game->items[i]->hitbox)) {
             sfSprite_setPosition(game->items[i]->sprite, (sfVector2f)
             {get_x_pos(i), 985});
-            sfRectangleShape_setPosition(game->items[i]->hitbox,
-            (sfVector2f) {get_x_pos(i), 985});
+            sfRectangleShape_setPosition(game->items[i]->hitbox, (sfVector2f)
+            {get_x_pos(i), 985});
             item = i;
             break;
         }

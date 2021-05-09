@@ -67,8 +67,6 @@ int game_events(sfEvent, game_t *, window_t *);
 void dust_effect(sfRenderWindow *window, game_t *game);
 void frozen(sfRenderWindow *window, int);
 void movers_two(sfEvent event, game_t *game);
-int get_x_pos(int i);
-void monster_dead(game_t *game, int i);
 
 // PIXEL
 void my_put_pixel(framebuffer_t *frbuff,
