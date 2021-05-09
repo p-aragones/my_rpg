@@ -62,6 +62,7 @@ void draw_items(elem_t **, sfRenderWindow *, int);
 void draw_hud(hud_t *, int , sfRenderWindow *, game_t *);
 void draw_npc(player_t *, npc_t *, sfRenderWindow *, game_t *);
 void display_game(game_t *, sfRenderWindow *);
+void enemy_died(game_t *game, int i);
 
 int game_events(sfEvent, game_t *, window_t *);
 

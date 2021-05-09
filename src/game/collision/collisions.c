@@ -74,8 +74,7 @@ void check_colision_ball_enemies(game_t *game)
         && time > 1 && game->room->enemies[i]->health > 0) {
             game->room->enemies[i]->health -= game->player->dmg;
             draw_particles(game, i);
-            if (game->room->enemies[i]->health <= 0)
-                game->room->n_enemies--;
+            enemy_died(game, i);
             sfClock_restart(game->room->enemies[i]->clock);
         }
     }
