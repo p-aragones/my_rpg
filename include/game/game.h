@@ -32,7 +32,7 @@ sfVector2f random_pos(void);
 void follow_player(player_t *, enemy_t **, game_t *);
 
 // ROOM
-void free_room(room_t *, sfRenderWindow *);
+void free_room(room_t *);
 void room_cleared(game_t *, sfRenderWindow *);
 void empty_room(game_t *, window_t *);
 int back_door(game_t *, sfVector2f, sfVector2f);
