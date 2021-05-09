@@ -70,6 +70,7 @@ int get_x_pos(int i)
 void check_colision_player_npc(game_t *game)
 {
     sfRectangleShape *player = game->player->hitbox;
+    int item = -1;
 
     for (int i = 0; game->items[i]; i++) {
         if (check_colision_rectangle(player, game->items[i]->hitbox)) {
@@ -77,7 +78,9 @@ void check_colision_player_npc(game_t *game)
             {get_x_pos(i), 985});
             sfRectangleShape_setPosition(game->items[i]->hitbox, (sfVector2f)
             {get_x_pos(i), 985});
+            item = i;
             break;
         }
     }
+    apply_stats(game, item);
 }
