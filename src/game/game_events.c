@@ -47,7 +47,7 @@ void exit_room(game_t *game, window_t *window)
     if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
     game->room->locked == 0 && game->current_room == game->max_room) {
         game->framebuffer = framebuffer_create(1920, 1080);
-        generate_room(game, window->window);
+        generate_room(game, window);
     }
     if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
     game->room->locked == 0 && game->current_room < game->max_room)
