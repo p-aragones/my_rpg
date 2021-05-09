@@ -95,6 +95,7 @@ typedef struct game_s {
     int speed_ball;
     int current_room;
     int max_room;
+    int can_shoot;
 } game_t;
 
 #endif /* !GAME_STRUCT_H_ */

@@ -70,7 +70,7 @@ int game_events(sfEvent event, game_t *game, window_t *window)
             game->hud->hitboxes *= -1;
         a = check_moves(event, game);
     }
-    if (game->hud->room->num != 0)
+    if (game->can_shoot == 1)
         ball_moves(event, game, a);
     if (game->room->enemies)
         follow_player(game->player, game->room->enemies, game);
