@@ -16,6 +16,7 @@
 #include "pause.h"
 
 // PLAYER
+void take_heart(game_t *);
 void apply_stats(game_t *, int);
 void move_player(player_t *, int, int);
 int ball_moves(sfEvent, game_t *, int);

@@ -72,6 +72,7 @@ void check_colision_player_npc(game_t *game)
     sfRectangleShape *player = game->player->hitbox;
     int item = -1;
 
+    take_heart(game);
     for (int i = 0; game->items[i]; i++) {
         if (check_colision_rectangle(player, game->items[i]->hitbox)) {
             sfSprite_setPosition(game->items[i]->sprite, (sfVector2f)
