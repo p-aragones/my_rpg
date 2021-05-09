@@ -45,7 +45,7 @@ void write_room(game_t *game, int fd)
 void write_gender(window_t *window, int fd)
 {
     write(fd, GENDER, my_strlen(GENDER));
-    if (window->config->gender = 0)
+    if (window->config->gender = 1)
         write(fd, BOY, my_strlen(BOY));
     else
         write(fd, GIRL, my_strlen(GIRL));
