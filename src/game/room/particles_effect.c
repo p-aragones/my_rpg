@@ -36,7 +36,6 @@ void dust_effect(sfRenderWindow *window, game_t *game)
         i++;
         sfSleep(time);
     }
-    free_elem(dust);
 }
 
 void frozen(sfRenderWindow *window, int dropped)
@@ -59,5 +58,4 @@ void frozen(sfRenderWindow *window, int dropped)
         }
         sfSleep(time);
     }
-    free_elem(frozen);
 }

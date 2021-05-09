@@ -5,7 +5,6 @@
 ** game
 */
 
-#include <time.h>
 #include "game.h"
 
 int moving_player_two(int i, game_t *game)
@@ -54,9 +53,9 @@ int game(window_t *window)
 
     if (!game || !clock)
         return (84);
-    srand(time(NULL));
     dezoom(window->window, game->room->elem->sprite);
-    while (!in_game && sfRenderWindow_isOpen(window->window)) {
+    while (!in_game && sfRenderWindow_isOpen(window->window) &&
+    game->player->health > 0) {
         i = moving_player(i, game);
         if (sfClock_getElapsedTime(clock->clock).microseconds > TIME_LIMIT) {
             if (game_events(event, game, window))
