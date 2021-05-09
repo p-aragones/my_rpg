@@ -67,7 +67,7 @@ void display_game(game_t *game, sfRenderWindow *window)
     if (game->room->enemies != NULL)
         draw_enemies(game->room->enemies, window, game->hud->hitboxes);
     draw_ball(game->ball, window, game->hud->hitboxes);
-    draw_hud(game->hud, game->player->health, window);
+    draw_hud(game->hud, game->player->health, window, game);
     draw_items(game->items, window);
     sfRenderWindow_display(window);
 }

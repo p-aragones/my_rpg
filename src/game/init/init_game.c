@@ -30,6 +30,7 @@ game_t *init_ball(game_t *game)
     SCALE_BALL.y};
     game->ball->hitbox = create_rectangle(POS_BALL, sfRed, size);
     game->ball_dir = 0;
+    game->speed_ball = 30;
 }
 
 game_t *init_game(window_t *window)

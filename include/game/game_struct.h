@@ -59,6 +59,12 @@ typedef struct hud_s {
     elem_t **hearts;
     text_t *room;
     inventory_t *inv;
+    elem_t *dmg;
+    elem_t *speed;
+    elem_t *dex;
+    sfText *dmg_text;
+    sfText *dex_text;
+    sfText *speed_text;
     int hitboxes;
 } hud_t;
 
@@ -86,6 +92,7 @@ typedef struct game_s {
     elem_t **items;
     int item_dropped;
     int ball_dir;
+    int speed_ball;
     int current_room;
     int max_room;
 } game_t;

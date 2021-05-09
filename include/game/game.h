@@ -46,6 +46,7 @@ void check_colision_ball_enemies(game_t *);
 // INIT
 player_t *init_player(window_t *);
 room_t *init_room(void);
+void init_stats(hud_t *);
 hud_t *init_hud(void);
 game_t *init_game(window_t *);
 npc_t *init_npc(void);
@@ -55,7 +56,7 @@ sounds_t *init_sounds(void);
 // DISPLAY
 void reset_item_pos(elem_t **);
 void draw_items(elem_t **, sfRenderWindow *);
-void draw_hud(hud_t *, int , sfRenderWindow *);
+void draw_hud(hud_t *, int , sfRenderWindow *, game_t *);
 void draw_npc(player_t *, npc_t *, sfRenderWindow *, game_t *);
 void display_game(game_t *, sfRenderWindow *);
 

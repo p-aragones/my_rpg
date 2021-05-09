@@ -31,16 +31,16 @@ int ball_moves(sfEvent event, game_t *game, int a)
 {
     get_direction(game, a);
     if (game->ball_dir == 1) {
-        game->ball->pos.x += -30;
+        game->ball->pos.x -= game->speed_ball;
     }
     if (game->ball_dir == 2) {
-        game->ball->pos.y += -30;
+        game->ball->pos.y -= game->speed_ball;
     }
     if (game->ball_dir == 3) {
-        game->ball->pos.y += 30;
+        game->ball->pos.y += game->speed_ball;
     }
     if (game->ball_dir == 4) {
-        game->ball->pos.x += 30;
+        game->ball->pos.x += game->speed_ball;
     }
     sfRectangleShape_setPosition(game->ball->hitbox, game->ball->pos);
     return (0);

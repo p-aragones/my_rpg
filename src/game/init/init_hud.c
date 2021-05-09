@@ -85,6 +85,7 @@ hud_t *init_hud(void)
     hud->room = init_score();
     hud->inv = init_inv();
     hud->hitboxes = -1;
+    init_stats(hud);
     if (!hud->hearts || !hud->room || !hud->inv)
         return (NULL);
     return (hud);

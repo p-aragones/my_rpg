@@ -68,8 +68,28 @@
 #define RECT_HEART (sfIntRect){0, 0, 720, 720}
 #define SCALE_HEART (sfVector2f){0.05, 0.05}
 
+#define DMG_TEXTURE "resources/hud/dmg.png"
+#define POS_DMG (sfVector2f){10, 600}
+#define RECT_DMG (sfIntRect){0, 0, 512, 512}
+#define SCALE_DMG (sfVector2f){0.1, 0.1}
+#define TEXT_POS_DMG (sfVector2f){60, 575}
+
+#define SPEED_TEXTURE "resources/hud/speed.png"
+#define POS_SPEED (sfVector2f){10, 675}
+#define RECT_SPEED (sfIntRect){0, 0, 512, 512}
+#define SCALE_SPEED (sfVector2f){0.1, 0.1}
+#define TEXT_POS_SPEED (sfVector2f){60, 650}
+
+#define DEX_TEXTURE "resources/hud/dexterity.png"
+#define POS_DEX (sfVector2f){10, 750}
+#define RECT_DEX (sfIntRect){0, 0, 512, 512}
+#define SCALE_DEX (sfVector2f){0.1, 0.1}
+#define TEXT_POS_DEX (sfVector2f){60, 725}
+
 #define SCORE_POS (sfVector2f){1920 / 2, 10}
 #define SCORE_SIZE 80
+
+#define FONT_SIZE_STATS 60
 
 // ENEMIES
 #define BAT_TEXTURE "resources/enemies/bat.png"
