@@ -7,7 +7,7 @@
 
 #include "game.h"
 
-void empty_room(game_t *game)
+void empty_room(game_t *game, window_t *window)
 {
     free_room(game->room);
     sfSound_play(game->sounds->door);

@@ -16,7 +16,7 @@ int back_door(game_t *game, sfVector2f player, sfVector2f door)
     return (0);
 }
 
-void go_back(game_t *game)
+void go_back(game_t *game, window_t *window)
 {
     free_room(game->room);
     sfSound_play(game->sounds->door);

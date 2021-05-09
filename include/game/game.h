@@ -32,12 +32,12 @@ sfVector2f random_pos(void);
 void follow_player(player_t *, enemy_t **, game_t *);
 
 // ROOM
-void free_room(room_t *);
+void free_room(room_t *, sfRenderWindow *);
 void room_cleared(game_t *, sfRenderWindow *);
-void empty_room(game_t *);
+void empty_room(game_t *, window_t *);
 int back_door(game_t *, sfVector2f, sfVector2f);
-void go_back(game_t *);
-int generate_room(game_t *, sfRenderWindow *);
+void go_back(game_t *, window_t *);
+int generate_room(game_t *, window_t *);
 
 // HITBOXES
 void check_colision_to_player(game_t *);
