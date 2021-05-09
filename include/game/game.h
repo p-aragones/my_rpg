@@ -9,7 +9,6 @@
 #define GAME_H_
 
 #include <math.h>
-
 #include "rpg.h"
 #include "game_struct.h"
 #include "macro_game.h"
@@ -84,5 +83,8 @@ void my_draw_square(framebuffer_t *buffer,
                     sfVector2u position,
                     unsigned int size,
                     sfColor color);
+
+// SAVE
+int save_info(game_t *game, window_t *window);
 
 #endif /* !GAME_H_ */
