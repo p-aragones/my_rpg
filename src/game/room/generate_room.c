@@ -52,5 +52,6 @@ int generate_room(game_t *game, sfRenderWindow *window)
         game->room->heart->pos = START_OBJ;
         game->room->h_dropped = 0;
     }
+    save_info(game, window);
     dust_effect(window, game);
 }

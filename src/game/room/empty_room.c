@@ -18,4 +18,5 @@ void empty_room(game_t *game)
     reset_item_pos(game->items);
     if (game->current_room != 0)
         game->room->backdoor->pos.x = 20;
+    save_info(game, window);
 }

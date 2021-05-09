@@ -28,4 +28,5 @@ void go_back(game_t *game)
     sfSprite_setPosition(game->room->heart->sprite, game->room->heart->pos);
     if (game->current_room == 0)
         game->room->backdoor->pos.x = -200;
+    save_info(game, window);
 }
