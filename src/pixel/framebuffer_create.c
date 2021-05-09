@@ -25,5 +25,9 @@ framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)
         framebuffer->pixels[i] = 0;
         i++;
     }
+    framebuffer->clock = sfClock_create();
+    framebuffer->texture = sfTexture_create(1920, 1080);
+    framebuffer->sprite = sfSprite_create();
+    sfSprite_setTexture(framebuffer->sprite, framebuffer->texture, 1);
     return (framebuffer);
 }

@@ -71,5 +71,6 @@ void display_game(game_t *game, sfRenderWindow *window)
     draw_ball(game->ball, window, game->hud->hitboxes);
     draw_hud(game->hud, game->player->health, window, game);
     draw_items(game->items, window, game->hud->hitboxes);
+    sfRenderWindow_drawSprite(window, game->framebuffer->sprite, NULL);
     sfRenderWindow_display(window);
 }

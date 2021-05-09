@@ -41,6 +41,24 @@ void check_colision_to_player(game_t *game)
     }
 }
 
+void draw_particles(game_t *game, int i)
+{
+    sfVector2f pos = sfRectangleShape_getPosition(
+    game->room->enemies[i]->hitbox);
+    sfVector2f size = sfRectangleShape_getSize(
+    game->room->enemies[i]->hitbox);
+
+    my_draw_square(game->framebuffer, (sfVector2u) {pos.x, pos.y}, 10, sfRed);
+    my_draw_square(game->framebuffer, (sfVector2u) {pos.x + size.x, pos.y}, 10,
+    sfRed);
+    my_draw_square(game->framebuffer, (sfVector2u) {pos.x + size.x, pos.y +
+    size.y}, 10, sfRed);
+    my_draw_square(game->framebuffer, (sfVector2u) {pos.x, pos.y + size.y},
+    10, sfRed);
+    sfTexture_updateFromPixels(game->framebuffer->texture,
+    game->framebuffer->pixels, 1920, 1080, 0, 0);
+}
+
 void check_colision_ball_enemies(game_t *game)
 {
     sfRectangleShape *ball = game->ball->hitbox;
@@ -53,8 +71,9 @@ void check_colision_ball_enemies(game_t *game)
         time_clock = sfClock_getElapsedTime(game->room->enemies[i]->clock);
         time = sfTime_asSeconds(time_clock);
         if (check_colision_rectangle(ball, game->room->enemies[i]->hitbox)
-        && time > 1) {
+        && time > 1 && game->room->enemies[i]->health > 0) {
             game->room->enemies[i]->health -= game->player->dmg;
+            draw_particles(game, i);
             if (game->room->enemies[i]->health <= 0)
                 game->room->n_enemies--;
             sfClock_restart(game->room->enemies[i]->clock);
