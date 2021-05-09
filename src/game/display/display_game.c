@@ -5,8 +5,8 @@
 ** display_game
 */
 
-#include "game.h"
 #include <stdbool.h>
+#include "game.h"
 
 void draw_room(room_t *room, sfRenderWindow *window)
 {

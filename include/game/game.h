@@ -9,7 +9,6 @@
 #define GAME_H_
 
 #include <math.h>
-
 #include "rpg.h"
 #include "game_struct.h"
 #include "macro_game.h"

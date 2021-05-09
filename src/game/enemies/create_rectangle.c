@@ -5,10 +5,10 @@
 ** create_rectangle.c
 */
 
-#include "csfml_lib.h"
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <stdbool.h>
+#include "csfml_lib.h"
 
 sfRectangleShape *create_rectangle(sfVector2f position, sfColor color,
 sfVector2u vector)

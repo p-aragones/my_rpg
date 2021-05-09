@@ -5,8 +5,8 @@
 ** game
 */
 
-#include "game.h"
 #include <time.h>
+#include "game.h"
 
 int moving_player_two(int i, game_t *game)
 {

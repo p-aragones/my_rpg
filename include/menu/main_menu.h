@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-
 #include "lib.h"
 #include "csfml_lib.h"
 #include "rpg.h"

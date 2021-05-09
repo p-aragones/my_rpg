@@ -14,5 +14,4 @@ typedef struct pause_menu_s {
     elem_t *background;
 } pause_menu_t;
 
-
 #endif
