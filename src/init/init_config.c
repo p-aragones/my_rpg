@@ -70,7 +70,7 @@ config_t *init_config(char **av)
         return (NULL);
     if (!av[1]) {
         file_content = read_file(CONFIG);
-        config->file = my_strdup("save.txt");
+        config->file = my_strdup(DEFAULT_SAVE);
     } else {
         file_content = read_file(av[1]);
         config->file = my_strdup(av[1]);

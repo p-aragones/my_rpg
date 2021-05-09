@@ -35,4 +35,9 @@ int check_button(button_t **buttons, int size);
 void zoom(sfRenderWindow *window, sfSprite *sprite);
 void dezoom(sfRenderWindow *window, sfSprite *sprite);
 
+char *my_itoa(int a);
+char *my_malloc_string(int size);
+int my_int_len(int a);
+char *my_revstr(char *str);
+
 #endif

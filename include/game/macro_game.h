@@ -159,4 +159,11 @@
 #define OOF_SOUND "resources/sound/oof.ogg"
 #define SHOT_SOUND "resources/sound/shot.wav"
 
+// SAVE
+#define NAME "NAME:"
+#define GENDER "GENDER:"
+#define LIFE "LIFE:"
+#define LEVEL "LEVEL:"
+#define ROOM "ROOM:"
+
 #endif /* !MACRO_GAME_H_ */

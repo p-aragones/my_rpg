@@ -46,13 +46,13 @@ void exit_room(game_t *game, window_t *window)
 {
     if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
     game->room->locked == 0 && game->current_room == game->max_room)
-        generate_room(game, window->window);
+        generate_room(game, window);
     if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
     game->room->locked == 0 && game->current_room < game->max_room)
-        empty_room(game);
+        empty_room(game, window);
     if (back_door(game, game->player->elem->pos,
     game->room->backdoor->pos) == 1)
-        go_back(game);
+        go_back(game, window);
 }
 
 int game_events(sfEvent event, game_t *game, window_t *window)

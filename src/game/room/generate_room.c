@@ -32,7 +32,7 @@ void reset_item_pos(elem_t **items)
     }
 }
 
-int generate_room(game_t *game, sfRenderWindow *window)
+int generate_room(game_t *game, window_t *window)
 {
     game->current_room++;
     game->max_room++;
@@ -52,5 +52,6 @@ int generate_room(game_t *game, sfRenderWindow *window)
         game->room->heart->pos = START_OBJ;
         game->room->h_dropped = 0;
     }
-    dust_effect(window, game);
+    save_info(game, window);
+    dust_effect(window->window, game);
 }

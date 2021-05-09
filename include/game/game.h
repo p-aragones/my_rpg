@@ -34,10 +34,10 @@ void follow_player(player_t *, enemy_t **, game_t *);
 // ROOM
 void free_room(room_t *);
 void room_cleared(game_t *, sfRenderWindow *);
-void empty_room(game_t *);
+void empty_room(game_t *, window_t *);
 int back_door(game_t *, sfVector2f, sfVector2f);
-void go_back(game_t *);
-int generate_room(game_t *, sfRenderWindow *);
+void go_back(game_t *, window_t *);
+int generate_room(game_t *, window_t *);
 
 // HITBOXES
 void check_colision_to_player(game_t *);
@@ -83,5 +83,8 @@ void my_draw_square(framebuffer_t *buffer,
                     sfVector2u position,
                     unsigned int size,
                     sfColor color);
+
+// SAVE
+int save_info(game_t *game, window_t *window);
 
 #endif /* !GAME_H_ */
