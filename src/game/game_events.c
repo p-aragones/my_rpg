@@ -7,38 +7,22 @@
 
 #include "game.h"
 
-int movers(sfEvent event, game_t *game)
+void movers(sfEvent event, game_t *game)
 {
-    if (event.key.code == sfKeyDown) {
-        move_player(game->player, DOWN);
-        game->player->elem->rect.top = 640;
-        return (0);
-    }
-    if (event.key.code == sfKeyLeft) {
-        move_player(game->player, LEFT);
-        game->player->elem->rect.top = 576;
-        return (0);
-    }
-    if (event.key.code == sfKeyRight) {
-        move_player(game->player, RIGHT);
-        game->player->elem->rect.top = 704;
-        return (0);
-    }
-    return (1);
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyUp)
+        game->player->up = 1;
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyDown)
+        game->player->down = 1;
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyLeft)
+        game->player->left = 1;
+    if (event.type == sfEvtKeyPressed && event.key.code == sfKeyRight)
+        game->player->right = 1;
+    movers_two(event, game);
 }
 
 int check_moves(sfEvent event, game_t *game)
 {
-    game->player->elem->rect.left += 64;
-    if (game->player->elem->rect.left == 576)
-        game->player->elem->rect.left = 0;
-    if (event.key.code == sfKeyUp) {
-        move_player(game->player, UP);
-        game->player->elem->rect.top = 512;
-        return (0);
-    }
-    if (movers(event, game) == 1)
-        game->player->elem->rect.left = 0;
+    movers(event, game);
     if (event.key.code == sfKeyA)
         return (1);
     if (event.key.code == sfKeyW)
@@ -58,24 +42,38 @@ int cross_door(sfVector2f player, sfVector2f door)
     return (0);
 }
 
+void exit_room(game_t *game, window_t *window)
+{
+    if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
+    game->room->locked == 0 && game->current_room == game->max_room)
+        generate_room(game, window->window);
+    if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
+    game->room->locked == 0 && game->current_room < game->max_room)
+        empty_room(game);
+    if (back_door(game, game->player->elem->pos,
+    game->room->backdoor->pos) == 1)
+        go_back(game);
+}
+
 int game_events(sfEvent event, game_t *game, window_t *window)
 {
     int a = 0;
 
-    if (game->room->n_enemies == 0)
-        game->room->locked = 0;
-    if (cross_door(game->player->elem->pos, game->room->door->pos) == 1 &&
-    game->room->locked == 0) {
-        generate_room(game);
-        dust_effect(window->window, game);
-    }
+    game->hud->room->num = game->current_room;
+    if (game->room->n_enemies <= 0 && game->room->locked == 1)
+        room_cleared(game, window->window);
+    exit_room(game, window);
     while (sfRenderWindow_pollEvent(window->window, &event)) {
-        if (event.key.code == sfKeyEscape)
-            sfRenderWindow_close(window->window);
+        if (event.key.code == sfKeyEscape && pause_menu(window) == 1)
+            return (1);
+        if (event.type == sfEvtKeyReleased && event.key.code == sfKeyH)
+            game->hud->hitboxes *= -1;
         a = check_moves(event, game);
     }
     if (game->hud->room->num != 0)
         ball_moves(event, game, a);
     if (game->room->enemies)
-        follow_player(game->player, game->room->enemies);
+        follow_player(game->player, game->room->enemies, game);
+    check_colision_player_npc(game);
+    return (0);
 }

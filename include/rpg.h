@@ -9,16 +9,20 @@
 #define RPG_H_
 
 #include "csfml_lib.h"
+#include "lib.h"
 #include "struct.h"
 #include "macros.h"
 #include "tools.h"
 
 int main_menu(window_t *);
-int rpg(void);
-window_t *init_window(void);
+int rpg(char **av);
+window_t *init_window(char **av);
+config_t *init_config(char **av);
+config_t *fill_config(config_t *config, char **content);
 fps_t *init_fps(void);
 elem_t *create_elem(char *path, sfVector2f pos, sfIntRect rect);
 
 clock_struct_t *init_clock(void);
+clock_struct_t *refresh_clock(clock_struct_t *clock);
 
 #endif

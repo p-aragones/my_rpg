@@ -5,7 +5,7 @@
 ** framebuffer_create.c
 */
 
-#include "framebuffer.h"
+#include "game.h"
 #include <stdlib.h>
 
 framebuffer_t *framebuffer_create(unsigned int width, unsigned int height)

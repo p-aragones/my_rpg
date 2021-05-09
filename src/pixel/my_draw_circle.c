@@ -5,6 +5,8 @@
 ** my_draw_circle.c
 */
 
+#include "game.h"
+
 typedef struct s_circle
 {
     sfVector2i pixel;

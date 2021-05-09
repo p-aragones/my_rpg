@@ -7,9 +7,9 @@
 
 #include "rpg.h"
 
-int rpg(void)
+int rpg(char **av)
 {
-    window_t *window = init_window();
+    window_t *window = init_window(av);
 
     if (!window)
         return (84);

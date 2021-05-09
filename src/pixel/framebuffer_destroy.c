@@ -5,6 +5,8 @@
 ** framebuffer_destroy.c
 */
 
+#include "game.h"
+
 void framebuffer_destroy(framebuffer_t *framebuffer)
 {
     free(framebuffer->pixels);

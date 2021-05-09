@@ -34,13 +34,24 @@ typedef struct elem_s {
     sfTexture* texture;
     sfVector2f pos;
     sfIntRect rect;
+    sfRectangleShape *hitbox;
 } elem_t;
+
+typedef struct config_s {
+    char *file;
+    char *name;
+    int gender;
+    int health;
+    int level;
+    int room;
+} config_t;
 
 typedef struct window_s {
     sfRenderWindow *window;
     sfVideoMode videoMode;
     fps_t *fps;
     sfMusic *music;
+    config_t *config;
 } window_t;
 
 #endif

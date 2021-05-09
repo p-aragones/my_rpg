@@ -7,10 +7,11 @@
 
 #include "game.h"
 
-enemy_t *create_enemy(void)
+enemy_t *get_enemy(void)
 {
     enemy_t *enemy = NULL;
     int random = rand() % 5;
+    sfVector2u size = (sfVector2u) {0, 0};
 
     if (random == 0)
         enemy = create_bat(BAT_STATS);
@@ -22,8 +23,23 @@ enemy_t *create_enemy(void)
         enemy = create_head(HEAD_STATS);
     if (random == 4)
         enemy = create_spike(SPIKE_STATS);
+    return (enemy);
+}
+
+enemy_t *create_enemy(void)
+{
+    enemy_t *enemy = get_enemy();
+    sfVector2u size = (sfVector2u) {0, 0};
+    sfVector2f scale = (sfVector2f) {0, 0};
+
     if (!enemy)
         return (NULL);
+    scale = sfSprite_getScale(enemy->elem->sprite);
+    size = (sfVector2u) {(enemy->elem->rect.width - enemy->elem->rect.left) *
+    scale.x, (enemy->elem->rect.height - enemy->elem->rect.top) * scale.y};
+    enemy->hitbox = create_rectangle(enemy->elem->pos, sfGreen, size);
+    enemy->health = 2;
+    enemy->clock = sfClock_create();
     return (enemy);
 }
 
@@ -47,15 +63,22 @@ game_t *no_boss(game_t *game)
 
 game_t *generate_boss(game_t *game)
 {
-    game->room->enemies = malloc(sizeof(enemy_t *) * (1 + 1));
+    sfVector2u size = (sfVector2u) {0, 0};
 
+    game->room->enemies = malloc(sizeof(enemy_t *) * (1 + 1));
     if (!game->room->enemies)
         return (NULL);
     game->room->n_enemies = 1;
     game->room->enemies[0] = create_enemy();
-    game->room->enemies[0]->health = 50;
+    game->room->enemies[0]->health = 7;
     game->room->enemies[1] = NULL;
     sfSprite_setScale(game->room->enemies[0]->elem->sprite, SCALE_BOSS);
+    size = (sfVector2u) {(game->room->enemies[0]->elem->rect.width -
+    game->room->enemies[0]->elem->rect.left) * SCALE_BOSS.x,
+    (game->room->enemies[0]->elem->rect.height -
+    game->room->enemies[0]->elem->rect.top) * SCALE_BOSS.y};
+    game->room->enemies[0]->hitbox = create_rectangle(
+    game->room->enemies[0]->elem->pos, sfBlue, size);
 }
 
 game_t *generate_enemies(game_t *game)

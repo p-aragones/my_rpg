@@ -4,6 +4,7 @@
 ** File description:
 ** my_draw_square.c
 */
+#include "game.h"
 
 void my_draw_square(framebuffer_t *buffer,
                     sfVector2u position,

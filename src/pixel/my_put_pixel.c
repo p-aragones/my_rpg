@@ -5,6 +5,8 @@
 ** my_put_pixel.c
 */
 
+#include "game.h"
+
 void my_put_pixel(framebuffer_t *frbuff,
                     unsigned int x,
                     unsigned int y,

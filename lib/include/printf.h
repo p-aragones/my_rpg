@@ -10,7 +10,6 @@
 #include <stdio.h>
 #include "lib.h"
 
-
 #ifndef PRINTF_H_
 #define PRINTF_H_
 
