@@ -16,6 +16,7 @@
 #define CONFIG "saves/config.txt"
 #define ERR_CONF "There is an error with the config file...\n"
 #define BOY "boy"
+#define GIRL "girl"
 
 #define TIME_LIMIT 30000
 
