@@ -5,6 +5,8 @@
 ** monster_dead.c
 */
 
+#include "game_struct.h"
+
 void monster_dead(game_t *game, int i)
 {
     if (game->room->enemies[i]->health <= 0) {
