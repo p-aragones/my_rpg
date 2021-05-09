@@ -52,5 +52,5 @@ void frozen(sfRenderWindow *window, int dropped)
         }
         sfSleep(time);
     }
-
+    free_elem(frozen);
 }
