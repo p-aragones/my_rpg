@@ -5,6 +5,7 @@
 ** init_game
 */
 
+#include <time.h>
 #include "game.h"
 #include "tools.h"
 
@@ -39,6 +40,7 @@ game_t *init_game(window_t *window)
 
     if (!game)
         return (NULL);
+    srand(time(NULL));
     game->room = init_room();
     game->hud = init_hud();
     game->npc = init_npc();
