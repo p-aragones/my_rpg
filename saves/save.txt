@@ -1,5 +1,0 @@
-NAME:Jul
-GENDER:boy
-LIFE:6
-LEVEL:3
-ROOM:3
