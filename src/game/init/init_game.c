@@ -49,5 +49,6 @@ game_t *init_game(window_t *window)
     load_config(game, window);
     if (!game->room || !game->player || !game->ball || !game->hud || !game->npc)
         return (NULL);
+    game->framebuffer = framebuffer_create(1920, 1080);
     return (game);
 }

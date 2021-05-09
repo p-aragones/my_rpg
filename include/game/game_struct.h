@@ -14,7 +14,10 @@
 typedef struct framebuffer {
     unsigned int width;
     unsigned int height;
+    sfTexture *texture;
+    sfSprite *sprite;
     sfUint8 *pixels;
+    sfClock *clock;
 } framebuffer_t;
 
 typedef struct inventory_s {
@@ -90,6 +93,7 @@ typedef struct game_s {
     hud_t *hud;
     sounds_t *sounds;
     elem_t **items;
+    framebuffer_t *framebuffer;
     int item_dropped;
     int ball_dir;
     int speed_ball;
