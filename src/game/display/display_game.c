@@ -20,6 +20,8 @@ void draw_player(player_t *player, sfRenderWindow *window, int hitbox)
 {
     sfSprite_setTextureRect(player->elem->sprite, player->elem->rect);
     sfSprite_setPosition(player->elem->sprite, player->elem->pos);
+    sfRectangleShape_setPosition(player->hitbox, (sfVector2f)
+    {player->elem->pos.x + 30, player->elem->pos.y + 30});
     sfRenderWindow_drawSprite(window, player->elem->sprite, NULL);
     if (hitbox > 0)
         sfRenderWindow_drawRectangleShape(window, player->hitbox, NULL);
