@@ -7,6 +7,17 @@
 
 #include "game.h"
 
+void setpos_npc(game_t *game, int random_item)
+{
+    if (game->item_dropped == 0) {
+        sfSprite_setPosition(game->items[random_item]->sprite,
+        POS_HEART_DROPPPED);
+        sfRectangleShape_setPosition(game->items[random_item]->hitbox,
+        POS_HEART_DROPPPED);
+        game->item_dropped = 1;
+    }
+}
+
 void draw_npc(player_t *p, npc_t *npc, sfRenderWindow *window, game_t *game)
 {
     int room = game->current_room;
@@ -21,13 +32,7 @@ void draw_npc(player_t *p, npc_t *npc, sfRenderWindow *window, game_t *game)
     if (p->elem->pos.y < npc->elem->pos.y + 100 && room % 5 == 0 &&
     room != 0) {
         sfRenderWindow_drawText(window, game->npc->text_item, NULL);
-        if (game->item_dropped == 0) {
-            sfSprite_setPosition(game->items[random_item]->sprite,
-            POS_HEART_DROPPPED);
-            sfRectangleShape_setPosition(game->items[random_item]->hitbox,
-            POS_HEART_DROPPPED);
-            game->item_dropped = 1;
-        }
+        setpos_npc(game, random_item);
     }
     if (npc->dropped == 1 && room == 0)
         sfRenderWindow_drawSprite(window, npc->ball->sprite, NULL);
