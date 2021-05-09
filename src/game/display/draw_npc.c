@@ -24,6 +24,8 @@ void draw_npc(player_t *p, npc_t *npc, sfRenderWindow *window, game_t *game)
         if (game->item_dropped == 0) {
             sfSprite_setPosition(game->items[random_item]->sprite,
             POS_HEART_DROPPPED);
+            sfRectangleShape_setPosition(game->items[random_item]->hitbox,
+            POS_HEART_DROPPPED);
             game->item_dropped = 1;
         }
     }

@@ -13,6 +13,7 @@ void draw_items(elem_t **items, sfRenderWindow *window)
 
     while (items[i]) {
         sfRenderWindow_drawSprite(window, items[i]->sprite, NULL);
+        sfRenderWindow_drawRectangleShape(window, items[i]->hitbox, NULL);
         i++;
     }
 }
