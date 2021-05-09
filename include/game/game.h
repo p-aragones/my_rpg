@@ -44,6 +44,7 @@ void check_colision_to_player(game_t *);
 bool check_colision_rectangle(sfRectangleShape *, sfRectangleShape *);
 void check_colision_ball_enemies(game_t *);
 void check_colision_player_npc(game_t *);
+int get_x_pos(int i);
 
 // INIT
 player_t *init_player(window_t *);
