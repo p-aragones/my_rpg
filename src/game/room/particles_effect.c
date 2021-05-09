@@ -8,6 +8,18 @@
 #include "rpg.h"
 #include "game.h"
 
+sfIntRect move_rect(sfIntRect rect)
+{
+    rect.left += 174;
+    if (rect.left > 174) {
+        rect.top += 174;
+        if (rect.top > 174)
+            rect.top = 0;
+        rect.left = 0;
+    }
+    return (rect);
+}
+
 void dust_effect(sfRenderWindow *window, game_t *game)
 {
     elem_t *dust = create_elem(DUST, DUST_POS, DUST_RECT);
@@ -19,13 +31,7 @@ void dust_effect(sfRenderWindow *window, game_t *game)
         sfRenderWindow_drawSprite(window, game->room->elem->sprite, NULL);
         sfRenderWindow_drawSprite(window, dust->sprite, NULL);
         sfRenderWindow_display(window);
-        dust->rect.left += 174;
-        if (dust->rect.left > 174) {
-            dust->rect.top += 174;
-            if (dust->rect.top > 174)
-                dust->rect.top = 0;
-            dust->rect.left = 0;
-        }
+        dust->rect = move_rect(dust->rect);
         sfSprite_setTextureRect(dust->sprite, dust->rect);
         i++;
         sfSleep(time);
